@@ -6,6 +6,9 @@ and open the template in the editor.
 -->
 <html>
     <head>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+
+        <title>Profilo:</title>
         <meta charset="UTF-8">
         <!-- Specifico il charset esplicitamente con un tag meta, cosi da poter usare i caratteri accentati -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,24 +29,24 @@ and open the template in the editor.
         <div class="input-form">
             <h3>Registrazione:</h3>
         
-        <form action="#" method="post">     
-            <br>Nome:
-            <input type="text" name="nome">
-            <br>Cognome:
-            <input type="text" name="cognome">
-            <br>URL dell'immagine del profilo
-            <input type="text" name="URL">
-            <br>Presentati:
-            <textarea rows="4" cols="20”
-                name="lungo" id="lungo">Scrivi qua...
-            </textarea>
-            <br>
-            <label for="data">Data</label>
-            <input name="data" id="data" type="text"/>
-            <br>
-            <button type="submit"> Ok
-            </button>
-        </form>
+            <form action="#" method="post">     
+                <br>Nome:
+                <input type="text" name="nome">
+                <br>Cognome:
+                <input type="text" name="cognome">
+                <br>URL dell'immagine del profilo
+                <input type="text" name="URL">
+                <br>Presentati:
+                <textarea rows="4" cols="20"
+                name="lungo" id="lungo" >Scrivi qua...
+                </textarea>
+                <br>
+                <label for="data">Data</label>
+                <input name="data" id="data" type="text"/>
+                <br>
+                <button type="submit"> Ok
+                </button>
+            </form>
         </div>
     </body>
 </html>
