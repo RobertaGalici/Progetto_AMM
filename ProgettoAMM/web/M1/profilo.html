@@ -26,23 +26,28 @@
             <h3>Registrazione:</h3>
         
             <form action="#" method="post">     
-                <br>Nome:
-                <input type="text" name="nome">
-                <br>Cognome:
-                <input type="text" name="cognome">
-                <br>URL dell'immagine del profilo
-                <input type="text" name="URL">
-                <br>Presentati:
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome">
+                <br>
+                <label for="cognome">Cognome:</label>
+                <input type="text" name="cognome" id="cognome">
+                <br>
+                <label for="urlImg">URL dell'immagine del profilo:</label>
+                <input type="url" name="URL" id="urlImg">
+                <br>
+                <label for="presentazione">Presentati:</label>
                 <textarea rows="4" cols="20"
-                name="lungo" id="lungo" >Scrivi qua...
+                name="lungo" id="presentazione" >Scrivi qua...
                 </textarea>
                 <br>
                 <label for="data">Data di nascita:</label>
-                <input name="data" id="data" type="text">
-                <br> Password:
-                <input type="password" name="pswd">
-                <br> Conferma password:           
-                <input type="password" name="pswd">
+                <input type="date" name="data" id="data">
+                <br> 
+                <label for="passw">Password:</label>
+                <input type="password" name="pass" id="passw">
+                <br>
+                <label for="confermaPswd">Conferma password:</label>           
+                <input type="password" name="confermaPswd" id="confermaPswd">
                 <button type="submit"> Ok
                 </button>
             </form>
