@@ -9,20 +9,61 @@ and open the template in the editor.
 */
 
 body{
-    background-color: #2DDDE0;
+    background-color: #7DCBD4;
     font: 17px/25px "Open Sans", Arial, sans-serif;
 }
 
 h1{
-    margin-top: 0px; /*Esaminato con inspector*/
-    color: #111111;
+    margin-top: 0px;
+    color: #00595F;
     font: 35px/40px "Open Sans", Arial, sans-serif;
     font-weight: bold;
 }
 
 h2{
-    margin-top: 0px; /*Esaminato con inspector*/
-    color: #333333;
+    margin-top: 0px;
+    color: #111111;
     font: 25px/40px "Open Sans", Arial, sans-serif;
     font-weight: bold;
+}
+
+a:link{
+    font-size: 20px;
+    text-decoration: none;
+    color: #111111;
+}
+
+a:visited{
+    font-size: 20px;
+    text-decoration: none;
+    color: #111111;
+}
+
+a:hover{
+    font-weight: bold;
+}
+.fotoProfilo img{
+    width: auto;
+    height: auto;
+}
+/*
+#registrazione{
+    width: 300px;
+    height: 15px;
+    color: #7DCBD4;
+    font: 17px/25px "Open Sans", Arial, sans-serif;
+}
+
+bacheca{
+    font-size: 70px;
+    text-decoration: none;
+    color: #111111;
+}
+*/
+#divBody{
+    background-color: #ffffff;
+    margin-bottom: 5px;
+    padding-left: 5px;
+    margin-top: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
 }
