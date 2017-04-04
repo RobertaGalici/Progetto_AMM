@@ -13,17 +13,43 @@ body{
     font: 17px/25px "Open Sans", Arial, sans-serif;
 }
 
+.login{
+    background-color: #ffffff;
+    font: 40px/25px "Open Sans", Arial, sans-serif;
+    text-align: center;
+}
+/*Tolgo l'elenco puntato non ordinato*/
+ul{
+    list-style-type:none;
+}
+/*Tolgo l'elenco puntato ordinato*/
+li{
+    list-style: none;
+}
+/*Modifico la visualizzazione dei campi di input*/
+label, input, textArea{
+    color: #111111;
+    font: 15px/25px "Open Sans", Arial, sans-serif;
+}
+
 h1{
     margin-top: 0px;
     color: #00595F;
-    font: 35px/40px "Open Sans", Arial, sans-serif;
+    font: 35px/40px Arial, "Open Sans", sans-serif;
     font-weight: bold;
 }
 
 h2{
     margin-top: 0px;
-    color: #111111;
+    color: #333333;
     font: 25px/40px "Open Sans", Arial, sans-serif;
+    font-weight: bold;
+}
+
+h3{
+    margin-top: 0px;
+    color: #333333;
+    font: 20px/30px "Open Sans", Arial, sans-serif;
     font-weight: bold;
 }
 
@@ -41,29 +67,4 @@ a:visited{
 
 a:hover{
     font-weight: bold;
-}
-.fotoProfilo img{
-    width: auto;
-    height: auto;
-}
-/*
-#registrazione{
-    width: 300px;
-    height: 15px;
-    color: #7DCBD4;
-    font: 17px/25px "Open Sans", Arial, sans-serif;
-}
-
-bacheca{
-    font-size: 70px;
-    text-decoration: none;
-    color: #111111;
-}
-*/
-#divBody{
-    background-color: #ffffff;
-    margin-bottom: 5px;
-    padding-left: 5px;
-    margin-top: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,.2);
 }
