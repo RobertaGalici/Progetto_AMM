@@ -14,12 +14,6 @@ body{
     margin-top: 0px;
 }
 
-.login{
-    background-color: #ffffff;
-    font: 40px/25px "Open Sans", Arial, sans-serif;
-    text-align: center;
-}
-
 /*colore e dimensione paragrafi*/
 p{
     font-size: 18px;
@@ -202,7 +196,7 @@ a:hover{
 #divBody #mario, #cortex, #crash, #luigi{
     background-color: #ffffff;
     height: auto;
-    width: 650px;
+    width: 649px;
     margin-left: -56px;
     margin-top: 20px;
     float: left;
@@ -212,5 +206,53 @@ a:hover{
 
 #divBody #cortex #foto img{   
     width: 500px;
+
+}
+
+/*Scritta Nerdbook del login*/
+#header #titolo{
+    background-color: #ffffff;
+    text-align: centre;
+    height: 35px;
+    width: 180px;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    margin-top: 25px;
+    left: 350px;
+    margin-right: 50px;
+    top: 0px;
+    position: fixed;
+
+}
+
+#riquadroLogin{
+    background-color: #ffffff;    
+    position: relative;
+    text-align: center;
+    padding-bottom: 0px;
+    margin-right: 1px;
+    margin-top: 0px;
+    width: 300px;
+    left: 30%;
+    top: 15%;
+
+}
+
+#button{
+    width: 172px;
+}
+
+#loginHeader{
+    margin-top: 60px;
+    margin-left: 350px;
+
+}
+#loginHeader h1{
+    padding-left: 30px;
+}
+#loginHeader img{
+    position: relative;
+    top: 50px;
+    right: 40px;
+    width: 50px;
 
 }
