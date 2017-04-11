@@ -45,6 +45,7 @@ li{
     background-color: #ffffff;
 }
 
+/*Scritta Nerdbook*/
 #header #title{
     background-color: #ffffff;
     text-align: left;
@@ -57,7 +58,7 @@ li{
     position: fixed;
     
 }
-
+/*Modifico i parametri della nav*/
 nav p{
     margin-right: 50px;
     position: fixed;
@@ -65,7 +66,9 @@ nav p{
     margin-top: 3px;
     top: 0px;
     margin-left: 10px;
-    height: 50px;
+    height: 50px;    
+    width: 100px;
+
 
 }
 
@@ -75,6 +78,15 @@ nav p{
     position: fixed;
     margin-left: 970px;
     margin-top: 20px;
+
+}
+
+nav img{
+    text-align: left;
+    float: left;
+    margin-left: 966px;
+    width: 30px;
+    margin-top: 7px;
 
 }
 
@@ -184,9 +196,30 @@ a:hover{
 #persone{
     top:40px;
     width: 200px;
+    
 }
 
 #divBody{
     padding-top: 50px;
     margin-left: 300px;
 }
+
+#persone img{
+    width: 20px;
+    top:10px;
+    text-align: left;
+    float: left;
+    padding-right: 5px;
+
+}
+
+#gruppi img{
+    width: 20px;
+    top:15px;
+    text-align: left;
+    float: left;
+    padding-right: 5px;
+    margin-top: 2px;
+}
+
+    
