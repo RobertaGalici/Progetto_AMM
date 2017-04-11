@@ -87,7 +87,7 @@ nav img{
     margin-left: 966px;
     width: 30px;
     margin-top: 7px;
-
+    position: fixed;
 }
 
 ol {
