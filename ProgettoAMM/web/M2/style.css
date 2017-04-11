@@ -70,11 +70,12 @@ nav p{
 }
 
 #logout{
-    margin-top: 14px;;
     text-decoration: underline;
     float: right;
     position: fixed;
-    margin-left: 1160px;
+    margin-left: 970px;
+    margin-top: 20px;
+
 }
 
 ol {
