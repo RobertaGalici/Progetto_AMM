@@ -72,22 +72,17 @@ nav p{
 
 }
 
-#logout{
-    text-decoration: underline;
+#logout li{
+    text-decoration: none;
     float: right;
     position: fixed;
     margin-left: 970px;
-    margin-top: 20px;
-
-}
-
-nav img{
-    text-align: left;
-    float: left;
-    margin-left: 966px;
-    width: 30px;
-    margin-top: 7px;
-    position: fixed;
+    margin-top: 10px;
+    background-color:#ccf3ff;
+    border-right: none;
+    text-decoration: underline;
+    
+  
 }
 
 ol {
@@ -204,22 +199,18 @@ a:hover{
     margin-left: 300px;
 }
 
-#persone img{
-    width: 20px;
-    top:10px;
-    text-align: left;
+#divBody #mario, #cortex, #crash, #luigi{
+    background-color: #ffffff;
+    height: auto;
+    width: 650px;
+    margin-left: -56px;
+    margin-top: 20px;
     float: left;
-    padding-right: 5px;
+
 
 }
 
-#gruppi img{
-    width: 20px;
-    top:15px;
-    text-align: left;
-    float: left;
-    padding-right: 5px;
-    margin-top: 2px;
-}
+#divBody #cortex #foto img{   
+    width: 500px;
 
-    
+}
