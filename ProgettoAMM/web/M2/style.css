@@ -28,7 +28,6 @@ ul{
 li{
     display: inline; /*allineo gli elementi classificati come ordinati. es: profilo, bacheca, login ecc*/
     list-style-type: none; /*Tolgo l'elenco puntato ordinato*/
-    border-right: 1px solid #bbb;
 }
 
 li{
@@ -63,6 +62,17 @@ nav p{
     
     
 }
+/*colore nav*/
+nav #active a{
+    color: #ffffff;
+    background: #173679;
+    padding-top: 8px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+
+
+}
 
 #logout li{
     text-decoration: none;
@@ -71,7 +81,6 @@ nav p{
     margin-left: 970px;
     margin-top: 10px;
     background-color:#ccf3ff;
-    border-right: none;
     text-decoration: underline;
     
     
@@ -157,7 +166,6 @@ a:hover{
 
 #persone, #gruppi{
     text-align: left;
-    border-right: 1px solid #000;
     background: #ccf3ff;
     position: fixed;
     
@@ -294,12 +302,17 @@ nav ol li p {
 
 .goTo nav ol p{
     float: left;
-    left: 800px;
+    left: 835px;
     margin-top: 0px;
     margin-bottom: 0px;
     margin-right: 0px;
     font-size: 10px;
     margin-left: -325px;
+
+}
+
+.goTo nav ol{
+    width: 400px;
 
 }
 
@@ -340,6 +353,10 @@ nav ol li p {
     margin-top: 18px;
 }
 
+#header nav ol p{
+    margin-left: 80px;
+}
+
 @media only screen and (max-width: 1024px){
 p{
     font-size: 15px;
@@ -354,6 +371,11 @@ p{
 
 #header h1{
     font-size: 25px;
+    margin-left: 160px;
+}
+
+#header #loginHeader h1{
+    margin-left: 0px;
 }
 
 #header{
@@ -450,12 +472,14 @@ nav ol li p {
 
 #header nav ol p{
     margin-top: 28px;
-    left: 525px;
+    left: 525px;    
+
 }
 
 .goTo nav ol{
     left: 0px;
-    width: 330px;
+    width: 400px;
+
 }
 
 .goTo nav ol p{
@@ -463,6 +487,11 @@ nav ol li p {
     margin-top: 30px;
     right: 0px;
     margin-right: 0px;
+}
+
+.goTo nav ol a{
+    width: 400px;
+
 }
 
 #divBody form{
@@ -477,11 +506,17 @@ nav ol li p {
 
 }
 
-#title h1{
-    position: fixed;
+
+#header title{
+    height: 30px;
+    width: 100px;
     float: left;
+    font-size: 25px;
+    position: fixed;
 }
 
+}
 
-
+@media only screen and (max-width: 480px){
+    
 }
