@@ -376,6 +376,7 @@ p{
 
 #header #loginHeader h1{
     margin-left: 0px;
+    padding-left: 30px;
 }
 
 #header{
@@ -489,6 +490,8 @@ nav ol li p {
     margin-top: 30px;
     right: 0px;
     margin-right: 0px;
+    padding-left: 40px;
+
 }
 
 .goTo nav ol a{
@@ -534,10 +537,12 @@ nav ol li p {
 
 #header #loginHeader h1{
     margin-left: -180px;
+    padding-left: 40px;
     
 }
 #header #loginHeader img{
     left: -200px;
+
 }
 
 #persone{
@@ -570,5 +575,33 @@ nav ol li p {
     width: 160px;
 
 }
+
+#divBody #crash p{
+    width: 120px;
+
+}
+
+#divBody #luigi #fotoL img{
+    width: 150px;
+}
+
+#divBody #crash a{
+    font-size: 10px;
+}
+
+#header nav ol{
+    margin-right: 0px;
+    padding-right: 0px;
+    padding-left: 5px;
+    width: 360px;
+}
+
+#header nav ol li{
+    padding-right: 0px;    
+    width: 300px;    
+    padding-left: 0px;
+
+}
+
 
 }
