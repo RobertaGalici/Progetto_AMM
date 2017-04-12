@@ -41,11 +41,9 @@ li{
 
 /*Scritta Nerdbook*/
 #header #title{
-    background-color: #ffffff;
+    background-color: none;
     text-align: left;
     height: 40px;
-    width: 200px;
-    box-shadow: 0 0 10px rgba(0,0,0,.2);
     margin-top: 10px;
     margin-right: 50px;
     top: -10px;
@@ -198,6 +196,13 @@ a:hover{
     
 }
 
+
+#divBody #mario #fotoProfilo{  
+    margin-top: 0px;
+    margin-bottom: 30px;
+
+}
+
 /*Scritta Nerdbook del login*/
 #header #titolo{
     background-color: #ffffff;
@@ -224,6 +229,14 @@ a:hover{
     left: 30%;
     top: 15%;
     
+}
+
+#riquadroLogin form button{
+    left: 180px;
+    width: 175px;
+    margin-left: 70px;
+
+
 }
 
 #button{
@@ -263,6 +276,7 @@ a:hover{
 .goTo nav ol{
     padding-left: 0px;
     left: 208px;
+    width: 350px;
 }
 
 nav ol li p {
@@ -334,11 +348,16 @@ p{
 #header #title{
     height: 30px;
     width: 100px;
+    float: left;
     
 }
 
 #header h1{
-    font-size: 15px;
+    font-size: 25px;
+}
+
+#header{
+    margin-left: -150px;
 }
 
 label, input, textArea{
@@ -358,9 +377,12 @@ nav ol li p{
 
 #persone{
     top: 100px;
+    width: 190px;
+
 }
 #gruppi{
     top: 300px;
+    width: 190px;
 }
 
 #divBody{
@@ -376,7 +398,18 @@ nav ol li p{
 
 #divBody #cortex #foto img{   
     width: 400px;
-    
+    margin-top: 0px; 
+}
+
+#divBody #cortex #fotoC img{
+    margin-top: 0px;
+
+}
+
+#divBody #crash img{
+    margin-top: 0px;
+    margin-bottom: 70px;
+
 }
 
 #divBody #luigi #fotoL img{
@@ -386,7 +419,13 @@ nav ol li p{
 #divBody #luigi #fotoLmini img{
     width: 90px;
     height: 150px;
-    
+    margin-top: 0px;
+}
+
+#divBody #mario .fotoProfilo img{
+    margin-top: 0px;
+    margin-bottom: 40px;
+
 }
 
 h1, h2, h3{
@@ -396,5 +435,53 @@ h1, h2, h3{
 nav ol li p {
     left: 600px;
 }
+
+#riquadroLogin form button{
+    left: 200px;
+    margin-left: 55px;
+    width: 131px;
+}
+
+#riquadroLogin{  
+    height: 130px;
+    width: 250px;
+    margin-left: 10px;
+}
+
+#header nav ol p{
+    margin-top: 28px;
+    left: 525px;
+}
+
+.goTo nav ol{
+    left: 0px;
+    width: 330px;
+}
+
+.goTo nav ol p{
+    left: 580px;
+    margin-top: 30px;
+    right: 0px;
+    margin-right: 0px;
+}
+
+#divBody form{
+    width: 300px;    
+    margin-top: 50px;
+
+}
+
+#divBody img{
+    width: 70px;    
+    margin-top: 67px;
+
+}
+
+#title h1{
+    position: fixed;
+    float: left;
+}
+
+
 
 }
