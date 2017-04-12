@@ -277,7 +277,7 @@ nav ol li p {
     height: 20px;
 
 }
-/*Qua*/
+
 .goTo nav ol p{
     float: left;
     left: 800px;
@@ -286,7 +286,6 @@ nav ol li p {
     margin-right: 0px;
     font-size: 10px;
     margin-left: -325px;
-
 
 }
 
@@ -325,4 +324,77 @@ nav ol li p {
     float: left;
     margin-right: 15px;
     margin-top: 18px;
+}
+
+@media only screen and (max-width: 1024px){
+p{
+    font-size: 15px;
+} 
+
+#header #title{
+    height: 30px;
+    width: 100px;
+    
+}
+
+#header h1{
+    font-size: 15px;
+}
+
+label, input, textArea{
+    font: 12px/22px "Open Sans", Arial, sans-serif;
+}
+nav ol{
+    left: 80px;
+    font-size: 10px;
+    left: 0px;
+    top: 30px;
+    
+}
+
+nav ol li p{
+    left: 30px;
+}
+
+#persone{
+    top: 100px;
+}
+#gruppi{
+    top: 300px;
+}
+
+#divBody{
+    padding-top: 30px;
+    margin-left: 200px;
+}
+
+#divBody #mario, #cortex, #crash, #luigi{
+    width: 478px;
+    margin-left: 15px;
+    margin-top: 60px;
+}
+
+#divBody #cortex #foto img{   
+    width: 400px;
+    
+}
+
+#divBody #luigi #fotoL img{
+    width: 300px;
+}
+
+#divBody #luigi #fotoLmini img{
+    width: 90px;
+    height: 150px;
+    
+}
+
+h1, h2, h3{
+    font-size: 18px;
+}
+
+nav ol li p {
+    left: 600px;
+}
+
 }
