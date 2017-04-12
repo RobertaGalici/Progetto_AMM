@@ -285,5 +285,44 @@ nav ol li p {
     margin-bottom: 0px;
     margin-right: 0px;
     font-size: 10px;
+    margin-left: -325px;
 
+
+}
+
+#divBody form{
+    position: relative;
+    float: left;
+    width: 600px;
+    height: 300px;
+}
+
+#divBody form input, textArea{
+    width: 200px;
+    height: 25px;
+    float: right;
+    clear: right;    
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
+}
+
+#divBody form label{
+    width: 200px;
+    height: 25px;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    float: left;
+    clear: left;
+}
+
+#divBody form button{
+    float: right;
+    clear: both;
+    width: 100%;
+}
+#divBody img{
+    float: left;
+    margin-right: 15px;
+    margin-top: 18px;
 }
