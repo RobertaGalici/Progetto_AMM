@@ -409,7 +409,9 @@ nav ol li p{
 
 #divBody{
     padding-top: 30px;
-    margin-left: 200px;
+    margin-left: 200px;    
+    margin-top: 40px;
+
 }
 
 #divBody #mario, #cortex, #crash, #luigi{
@@ -518,5 +520,55 @@ nav ol li p {
 }
 
 @media only screen and (max-width: 480px){
+#divBody {        
+    margin-top: 40px;   
+}
     
+#header nav ol{
+    padding-left: 0px;
+    width: 650px;
+    margin-left: 0px;
+    margin-right: 0px;
+
+}
+
+#header #loginHeader h1{
+    margin-left: -180px;
+    
+}
+#header #loginHeader img{
+    left: -200px;
+}
+
+#persone{
+    width: 140px;
+}
+
+#gruppi{
+    width: 100px;
+}
+
+#divBody form{    
+    width: 150px;
+    margin-top: 100px;
+}
+.goTo nav ol p{
+    left: 620px;
+}
+
+#title h1{
+    position: fixed;    
+    top: 0px;
+
+}
+
+#divBody #mario, #cortex, #crash, #luigi{
+    width: 160px;
+}
+
+#divBody #cortex #foto img{    
+    width: 160px;
+
+}
+
 }
