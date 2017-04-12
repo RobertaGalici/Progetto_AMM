@@ -40,7 +40,6 @@ li{
 
 /*Scritta Nerdbook*/
 #header #title{
-    background-color: none;
     text-align: left;
     height: 40px;
     margin-top: 10px;
@@ -214,7 +213,6 @@ a:hover{
 /*Scritta Nerdbook del login*/
 #header #titolo{
     background-color: #ffffff;
-    text-align: centre;
     height: 35px;
     width: 180px;
     box-shadow: 0 0 10px rgba(0,0,0,.2);
