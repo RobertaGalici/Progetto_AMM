@@ -18,7 +18,7 @@ public class Gruppi {
     
     public Gruppi(){
         id = 0;
-        nome = "";
+        nome = " ";
         utentiGruppo = new UtentiRegistrati[200];
     }
 
