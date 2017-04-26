@@ -9,25 +9,25 @@ import java.util.ArrayList;
  *
  * @author Robi
  */
-public class UtentiRegistratiFactory {
+public class UtenteRegistratoFactory {
 
     //Pattern Design Singleton
-    private static UtentiRegistratiFactory singleton;
+    private static UtenteRegistratoFactory singleton;
 
-    public static UtentiRegistratiFactory getInstance() {
+    public static UtenteRegistratoFactory getInstance() {
         if (singleton == null) {
-            singleton = new UtentiRegistratiFactory();
+            singleton = new UtenteRegistratoFactory();
         }
         return singleton;
     }
 
-    private ArrayList<UtentiRegistrati> listaUtentiRegistrati = new ArrayList<UtentiRegistrati>();
+    private ArrayList<UtenteRegistrato> listaUtentiRegistrati = new ArrayList<UtenteRegistrato>();
 
-    private UtentiRegistratiFactory() {
+    private UtenteRegistratoFactory() {
         //Creazione utenti
 
         //Mario
-        UtentiRegistrati utente1 = new UtentiRegistrati();
+        UtenteRegistrato utente1 = new UtenteRegistrato();
         utente1.setId(0);
         utente1.setNome("Mario");
         utente1.setCognome("Bros");
@@ -38,7 +38,7 @@ public class UtentiRegistratiFactory {
         utente1.setPresentazione("Ciao, sono Mario!");
 
         //Luigi
-        UtentiRegistrati utente2 = new UtentiRegistrati();
+        UtenteRegistrato utente2 = new UtenteRegistrato();
         utente2.setId(1);
         utente2.setNome("Luigi");
         utente2.setCognome("Bros");
@@ -49,7 +49,7 @@ public class UtentiRegistratiFactory {
         utente2.setPresentazione("Ciao, sono Luigi!");
         
         //Crash Bandicoot
-        UtentiRegistrati utente3 = new UtentiRegistrati();
+        UtenteRegistrato utente3 = new UtenteRegistrato();
         utente3.setId(2);
         utente3.setNome("Crash");
         utente3.setCognome("Bandicoot");
@@ -59,7 +59,7 @@ public class UtentiRegistratiFactory {
         utente3.setPresentazione("Ciao, sono Crash!");
         
         //Neo Cortex
-        UtentiRegistrati utente4 = new UtentiRegistrati();
+        UtenteRegistrato utente4 = new UtenteRegistrato();
         utente4.setId(2);
         utente4.setNome("Neo");
         utente4.setCognome("Cortex");
@@ -75,8 +75,8 @@ public class UtentiRegistratiFactory {
         listaUtentiRegistrati.add(utente4);
     }
 
-    public UtentiRegistrati getUtentiRegistratiById(int id) {
-        for (UtentiRegistrati user : this.listaUtentiRegistrati) {
+    public UtenteRegistrato getUtentiRegistratiById(int id) {
+        for (UtenteRegistrato user : this.listaUtentiRegistrati) {
             if (user.getId() == id) {
                 return user;
             }

@@ -9,7 +9,7 @@ package amm.nerdbook.classi;
  *
  * @author Robi
  */
-public class UtentiRegistrati {
+public class UtenteRegistrato {
     
     private int id;
     private String nome;
@@ -20,7 +20,7 @@ public class UtentiRegistrati {
     private String dataNascita;
     private String presentazione;
     
-    public UtentiRegistrati() {
+    public UtenteRegistrato() {
         id = 0;
         nome = "";
         cognome = "";
@@ -145,8 +145,8 @@ public class UtentiRegistrati {
     
     @Override
     public boolean equals(Object altroUtente) {
-        if (altroUtente instanceof UtentiRegistrati)
-            if (this.getId() == ((UtentiRegistrati)altroUtente).getId()) return true;
+        if (altroUtente instanceof UtenteRegistrato)
+            if (this.getId() == ((UtenteRegistrato)altroUtente).getId()) return true;
         return false;
     }
 

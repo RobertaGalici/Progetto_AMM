@@ -16,7 +16,7 @@ public class Post {
     };
 
     protected int id;
-    protected UtentiRegistrati user;
+    protected UtenteRegistrato user;
     private String content;
     private Type postType;
 
@@ -44,14 +44,14 @@ public class Post {
     /**
      * @return the user
      */
-    public UtentiRegistrati getUser() {
+    public UtenteRegistrato getUser() {
         return user;
     }
 
     /**
      * @param user the user to set
      */
-    public void setUser(UtentiRegistrati user) {
+    public void setUser(UtenteRegistrato user) {
         this.user = user;
     }
 

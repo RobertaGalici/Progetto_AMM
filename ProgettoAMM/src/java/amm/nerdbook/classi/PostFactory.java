@@ -26,11 +26,10 @@ public class PostFactory {
     }
 
     private ArrayList<Post> listaPost = new ArrayList<Post>();
-    private ArrayList<Post> listaGruppiPost = new ArrayList<Post>();
 
     private PostFactory() {
         
-        UtentiRegistratiFactory utentiRegistratiFactory = UtentiRegistratiFactory.getInstance();
+        UtenteRegistratoFactory utentiRegistratiFactory = UtenteRegistratoFactory.getInstance();
 
         //Creazione Post
         Post post1 = new Post();
@@ -70,7 +69,7 @@ public class PostFactory {
         return null;
     }
 
-    public List getPostList(UtentiRegistrati users) {
+    public List getPostList(UtenteRegistrato users) {
 
         List<Post> listaPost = new ArrayList<Post>();
 
@@ -81,18 +80,6 @@ public class PostFactory {
         }
         return listaPost;
     }
-    
-    public List getPostList(Gruppi gruppi) {
 
-        List<Post> listaGruppiPost = new ArrayList<Post>();
-
-        for (Post post : this.listaGruppiPost) {
-            if (post.getUser().equals(gruppi)) {
-                listaGruppiPost.add(post);
-            }
-        }
-        return listaGruppiPost;
-    }
-    
 }
 
