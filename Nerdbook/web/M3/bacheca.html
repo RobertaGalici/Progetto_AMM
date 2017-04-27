@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Bacheca:</title>
+        <meta charset="UTF-8">
+        <!-- Specifico il charset esplicitamente con un tag meta, cosi da poter usare i caratteri accentati -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Roberta Galici">
+        <meta name="keywords" content="nerdbook nerd social network amici amicizie nuovi">
+        
+         <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+    </head>
+    
+    <body>
+        
+      <div id="header">
+        <div id="title">
+            <h1>NerdBook</h1>
+            <!-- Titolo -->
+        </div>
+      
+        <nav>    
+            <ol>
+                <li><a href="profilo.html">
+                       Profilo</a>
+                </li>
+                <li class="activ"><a href="bacheca.html">Bacheca</a></li>
+                <li><a href="descrizione.html">
+                       Descrizione</a>
+                </li>
+                <li><a href="login.html">
+                       Login</a>
+                </li>
+                <li>
+                    <p>Mario Bros</p>
+                    <a href="login.html">Logout</a>
+                </li>
+                
+            </ol>
+                
+        </nav>
+        </div>
+            
+        <div id="persone">
+            <h2>Persone:</h2>
+            <p>Mario Bros</p>
+            <p>Luigi</p>
+            <p>Crash Bandicoot</p>
+            <p>Dott. Neo Periwinkle Cortex</p>
+        </div>
+        
+        <div id="gruppi">
+            <h2>Gruppi:</h2>
+            <p>Nintendo</p>
+            <p>Playstation</p>
+        </div>
+                
+        
+            <div id="divBody">
+                
+                 <!--Singolo post di testo-->
+                <div id="mario" class="post">
+                    <h3>Mario Bros</h3>
+                    <div class="fotoProfilo">
+                        <img title="fotoProfiloMario" alt="Foto di Mario" src="immagini/SuperMario.jpg">
+                    </div>
+                     <p>Luigi, ti aspetto in pista!</p>
+                </div>
+                <!--Singolo post con una foto-->
+                <div id="cortex" class="post">
+                    <h3>Dott. Neo Periwinkle Cortex</h3>
+                    <div id="fotoC">
+                    <img title="fotoProfiloCortex" alt="Foto di Dott. Neo Cortex" src="immagini/neocortex.jpg">
+                    </div>
+                    <p>Preparati ad affrontare la mia ira, Crash Bandicoot!</p>
+                    <div id="foto">
+                        <img alt="Foto di Crash e Dott. Cortex" src="immagini/CrasheNeo.jpg">
+                    </div>
+                    
+                </div>
+                
+                <!--Singolo post con un link-->
+                 <div id="crash" class="post">
+                    <h3>Crash Bandicoot</h3>
+                    <img title="fotoProfiloCrash" alt="Foto di Crash" src="immagini/crash.jpg">                    
+                    <p>Ehi Cortex, dai un'occhiata qua: <a href="https://www.youtube.com/watch?v=DYjcZ5e5-iM" target="_blank"> https://www.youtube.com/watch?v=DYjcZ5e5-iM </a></p>
+                </div>
+                
+                <!--Singolo post con una foto-->
+                <div id="luigi" class="post">
+                    <h3>Luigi</h3>
+                    <div id="fotoLmini">
+                    <img title="fotoProfiloLuigi" alt="Foto di Luigi" src="immagini/luigi.png">
+                    </div>
+                    <p>Mario, guarda come eravamo giovani!</p>
+                    <div id="fotoL">
+                    <img alt="Foto di Mario e Luigi" src="immagini/MeL.jpg">
+                    </div>
+                </div>
+                
+            </div>
+            
+    </body>
+</html>
