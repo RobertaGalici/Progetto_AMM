@@ -36,17 +36,16 @@ public class UtenteRegistratoFactory {
         utente1.setPassword("0000");
         utente1.setUrlProfilo("img/SuperMario.jpg");
         utente1.setPresentazione("Ciao, sono Mario!");
-
-        //Luigi
+        
+        //Neo Cortex
         UtenteRegistrato utente2 = new UtenteRegistrato();
-        utente2.setId(1);
-        utente2.setNome("Luigi");
-        utente2.setCognome("Bros");
-        utente2.setEmail("luigino@gmail.com");
-        utente2.setDataNascita("16/07/1930");
-        utente2.setPassword("1234");
+        utente2.setId(2);
+        utente2.setNome("Neo");
+        utente2.setCognome("Cortex");
+        utente2.setEmail("cortex@gmail.com");
+        utente2.setPassword("9001");
         utente2.setUrlProfilo("");
-        utente2.setPresentazione("Ciao, sono Luigi!");
+        utente2.setPresentazione("Ciao, sono Cortex e sono un super cattivo! Mhuahahahah");
         
         //Crash Bandicoot
         UtenteRegistrato utente3 = new UtenteRegistrato();
@@ -57,17 +56,17 @@ public class UtenteRegistratoFactory {
         utente3.setPassword("5678");
         utente3.setUrlProfilo("");
         utente3.setPresentazione("Ciao, sono Crash!");
-        
-        //Neo Cortex
+
+        //Luigi
         UtenteRegistrato utente4 = new UtenteRegistrato();
-        utente4.setId(2);
-        utente4.setNome("Neo");
-        utente4.setCognome("Cortex");
-        utente4.setEmail("cortex@gmail.com");
-        utente4.setPassword("9001");
+        utente4.setId(1);
+        utente4.setNome("Luigi");
+        utente4.setCognome("Bros");
+        utente4.setEmail("luigino@gmail.com");
+        utente4.setDataNascita("16/07/1930");
+        utente4.setPassword("1234");
         utente4.setUrlProfilo("");
-        utente4.setPresentazione("Ciao, sono Cortex e sono un super cattivo! Mhuahahahah");
-       
+        utente4.setPresentazione("Ciao, sono Luigi!");
 
         listaUtentiRegistrati.add(utente1);
         listaUtentiRegistrati.add(utente2);
@@ -82,5 +81,14 @@ public class UtenteRegistratoFactory {
             }
         }
         return null;
+    }
+    
+    public int getIdByUserAndPassword(String user, String password){
+        for(UtenteRegistrato utente : this.listaUtentiRegistrati){
+            if(utente.getNome().equals(user) && utente.getPassword().equals(password)){
+                return utente.getId();
+            }
+        }
+        return -1;
     }
 }
