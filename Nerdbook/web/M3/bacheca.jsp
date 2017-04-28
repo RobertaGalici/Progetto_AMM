@@ -42,7 +42,7 @@
                 </c:forEach>
                 
                  <!--Singolo post di testo-->
-                 <div id="mario" class="post">
+                <div id="mario" class="post">
                     <h3>${utente1.nome} ${utente1.cognome}</h3>
                     <div class="fotoProfilo">
                         <img title="fotoProfiloMario" alt="Foto di Mario" src="${utente1.urlProfilo}">
