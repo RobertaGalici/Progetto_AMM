@@ -35,14 +35,20 @@
         </div>
 
         <form action="#" method="post">
-            <label for="userName">Username:</label>
-            <input type="text" name="username" id="userName">
-            <br>
-            <label for="userpsw">Password:</label>
-            <input type="password" name="password" id="userpsw">
-            <br>
-            <button id="button" type="submit"> Accedi
-            </button>
+            
+            <c:if test="${invalidData == true}">
+               <div id="invalidDataWarning">I dati inseriti non sono corretti</div>
+            </c:if>
+               
+                <div>
+                    <label for="userName">Username:</label>
+                    <input type="text" name="username" id="userName">
+                </div>
+                <div>
+                    <label for="userpsw">Password:</label>
+                    <input type="password" name="password" id="userpsw">
+                </div>
+                <button id="button" type="submit"> Accedi</button>
         </form>
     </div>
   </div>
