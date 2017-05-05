@@ -38,27 +38,21 @@
             <img title="fotoProfiloMario" alt="Foto di Mario" src="immagini/SuperMario.jpg">
             <form action="#" method="post">     
                 <label for="nome">Nome:</label>
-                <input type="text" name="nome" id="nome">
-                <br>
+                <input type="text" name="nome" id="nome" value="${user.nome}"/>
                 <label for="cognome">Cognome:</label>
-                <input type="text" name="cognome" id="cognome">
-                <br>
+                <input type="text" name="cognome" id="cognome" value="${user.cognome}"/>
                 <label for="urlImg">URL dell'immagine del profilo:</label>
-                <input type="url" name="URL" id="urlImg">
-                <br>
+                <input type="url" name="URL" id="urlImg" value="${user.urlProfilo}"/>
                 <label for="presentazione">Presentati:</label>
                 <textarea rows="4" cols="20"
-                          name="lungo" id="presentazione" >Scrivi qua...
+                          name="lungo" id="presentazione" value="${user.presentazione}"/>Scrivi qua...
                 </textarea>
-                <br>
                 <label for="data">Data di nascita:</label>
-                <input type="date" name="data" id="data">
-                <br> 
+                <input type="date" name="data" id="data"/>
                 <label for="passw">Password:</label>
-                <input type="password" name="pass" id="passw">
-                <br>
+                <input type="password" name="pass" id="passw"/>
                 <label for="confermaPswd">Conferma password:</label>           
-                <input type="password" name="confermaPswd" id="confermaPswd">
+                <input type="password" name="confermaPswd" id="confermaPswd"/>
                 <button type="submit"> Registrati
                 </button>
             </form>

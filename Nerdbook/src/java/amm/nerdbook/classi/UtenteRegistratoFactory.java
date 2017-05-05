@@ -5,6 +5,7 @@
  */
 package amm.nerdbook.classi;
 import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author Robi
@@ -90,5 +91,13 @@ public class UtenteRegistratoFactory {
             }
         }
         return -1;
+    }
+
+    public UtenteRegistrato getUserById(int loggedUserId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public List getUserList() {
+        return listaUtentiRegistrati;
     }
 }

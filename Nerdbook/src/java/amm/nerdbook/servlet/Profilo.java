@@ -5,15 +5,12 @@
  */
 package amm.nerdbook.servlet;
 
-import amm.nerdbook.classi.Post;
-import amm.nerdbook.classi.PostFactory;
 import amm.nerdbook.classi.UtenteRegistrato;
 import amm.nerdbook.classi.UtenteRegistratoFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,10 +18,10 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Robi
+ * @author Roby
  */
-@WebServlet(name = "Bacheca", urlPatterns = {"/Bacheca"})
-public class Bacheca extends HttpServlet {
+
+public class Profilo extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,38 +35,24 @@ public class Bacheca extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
         HttpSession sessione = request.getSession(false);
         
+        
+        
         if(sessione!=null && sessione.getAttribute("loggedIn")!=null && sessione.getAttribute("loggedIn").equals(true)){
-            //controllo se è impostato il parametro get "user" che mi consente
-            //di visualizzare la bacheca di uno specifico utente.
-            String paramUser = request.getParameter("user");
-            int userID;
-            if(paramUser != null){
-                userID = Integer.parseInt(paramUser);
-            } else {
-                userID = (Integer)sessione.getAttribute("loggedUserID");
-
-            }
-
-            UtenteRegistrato user = UtenteRegistratoFactory.getInstance().getUserById(userID);
-            if(user != null){
-                request.setAttribute("user", user);
-                
-                List<Post> posts = PostFactory.getInstance().getPostList(user);
-                request.setAttribute("posts", posts);
-
-                List<UtenteRegistrato> listaUtenti = UtenteRegistratoFactory.getInstance().getUserList();
-                request.setAttribute("users",listaUtenti);
-                
-                request.getRequestDispatcher("bacheca.jsp").forward(request, response);
-            } else {
-                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-            }
+            int loggedUserId = (Integer)sessione.getAttribute("loggedUserID");
+            UtenteRegistrato user = UtenteRegistratoFactory.getInstance().getUserById(loggedUserId);
+            request.setAttribute("user",user);
+            
+            List<UtenteRegistrato> listaUtentiRegistrati = UtenteRegistratoFactory.getInstance().getUserList();
+            request.setAttribute("users",listaUtentiRegistrati);
+            
+            request.getRequestDispatcher("profilo.jsp").forward(request, response);
         }
         else{
             try (PrintWriter out = response.getWriter()) {
-            
+            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -79,7 +62,7 @@ public class Bacheca extends HttpServlet {
             out.println("<h1>Errore: Accesso Negato</h1>");
             out.println("</body>");
             out.println("</html>");
-            }
+        }
         }
     }
 
