@@ -43,7 +43,7 @@ public class Login extends HttpServlet {
             request.getRequestDispatcher("Bacheca").forward(request, response);
             return;
         
-        //Se l'utente non è loggato...
+        //Se l'utente non è loggato
         } else {
             String username = request.getParameter("username");
             String password = request.getParameter("password");

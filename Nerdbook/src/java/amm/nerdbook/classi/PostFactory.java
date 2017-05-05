@@ -53,6 +53,7 @@ public class PostFactory {
         post3.setContentText("Ehi Cortex, dai un'occhiata qua: https://www.youtube.com/watch?v=DYjcZ5e5-iM");
         post3.setId(2);
         post3.setUser(utentiRegistratiFactory.getUtentiRegistratiById(1));
+        post3.setPostType(Post.Type.LINK);
         
         Post post4 = new Post();
         

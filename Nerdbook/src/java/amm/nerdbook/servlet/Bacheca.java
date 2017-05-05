@@ -41,8 +41,7 @@ public class Bacheca extends HttpServlet {
         HttpSession sessione = request.getSession(false);
         
         if(sessione!=null && sessione.getAttribute("loggedIn")!=null && sessione.getAttribute("loggedIn").equals(true)){
-            //controllo se è impostato il parametro get "user" che mi consente
-            //di visualizzare la bacheca di uno specifico utente.
+            
             String paramUser = request.getParameter("user");
             int userID;
             if(paramUser != null){
