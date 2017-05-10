@@ -44,8 +44,9 @@ public class UtenteRegistratoFactory {
         utente2.setNome("Neo");
         utente2.setCognome("Cortex");
         utente2.setEmail("cortex@gmail.com");
+        utente1.setDataNascita("04/12/1930");
         utente2.setPassword("9001");
-        utente2.setUrlProfilo("");
+        utente2.setUrlProfilo("img/neocortex.jpg");
         utente2.setPresentazione("Ciao, sono Cortex e sono un super cattivo! Mhuahahahah");
         
         //Crash Bandicoot

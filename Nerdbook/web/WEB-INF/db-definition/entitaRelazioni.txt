@@ -1,4 +1,4 @@
-Utente:
+utente: 1
 -id(Primary Key)
 -nome
 -cognome
@@ -8,23 +8,22 @@ Utente:
 -dataNascita
 -presentazione
 
-Post:
+post:3
 -id(Primary Key)
 -user(Foreign Key)
--contenutoTesto
+-contentText
 -url
 -tipoPost(Foreign Key)
 
-TipoPost:
+tipoUrl: 2
 -id(Primary Key)
 -tipo
 
-Gruppo:
+gruppo:4
 -id(Primary Key)
 -nome
 -amministratore(Foreign Key)
 
-UtentePerOgniGruppo:
--id(Primary Key)
--idGruppo(Foreign Key)
--idUtente(Foreign Key)
+utentePerOgniGruppo:5
+-utente(Foreign Key)
+-gruppo(Foreign Key)
