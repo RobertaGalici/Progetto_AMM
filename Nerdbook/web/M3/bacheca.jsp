@@ -33,7 +33,7 @@
             <div id="divBody">
                 <c:forEach var="post" items="${listaPost}">
                     
-                        <c:if test="${post.postType == 'TEXT'}">
+                        <c:if test="${post.postType == 'NULL'}">
                          <div id="mario" class="post">
                             <h3>${utente1.nome} ${utente1.cognome}</h3>
                             <div class="fotoProfilo">
@@ -42,28 +42,29 @@
                             <p>${post1.contentText}</p>
                         </div>  
                         
-                        <div id="luigi" class="post">
-                            <h3>Luigi</h3>
-                            <div id="fotoLmini">
-                            <img title="fotoProfiloLuigi" alt="Foto di Luigi" src="immagini/luigi.png">
-                            </div>
-                            <p>Mario, guarda come eravamo giovani!</p>
-                            <div id="fotoL">
-                            <img alt="Foto di Mario e Luigi" src="immagini/MeL.jpg">
-                            </div>
-                        </div>
                         </c:if>
                         <c:if test="${post.postType == 'IMAGE'}">
                            <div id="cortex" class="post">
-                            <h3>${utente2.nome} ${utente2.cognome}</h3>
-                            <div id="fotoC">
-                            <img title="fotoProfiloCortex" alt="Foto di Dott. Neo Cortex" src="${utente2.urlProfilo}">
-                            </div>
-                            <p>${post2.contentText}</p>
-                            <div id="foto">
-                                <img alt="Foto di Crash e Dott. Cortex" src="immagini/CrasheNeo.jpg">
-                            </div>
+                                <h3>${utente2.nome} ${utente2.cognome}</h3>
+                                <div id="fotoC">
+                                <img title="fotoProfiloCortex" alt="Foto di Dott. Neo Cortex" src="${utente2.urlProfilo}">
+                                </div>
+                                <p>${post2.contentText}</p>
+                                <div id="foto">
+                                    <img alt="Foto di Crash e Dott. Cortex" src="immagini/CrasheNeo.jpg">
+                                </div>
                            </div>
+                            
+                            <div id="luigi" class="post">
+                                <h3>Luigi</h3>
+                                <div id="fotoLmini">
+                                <img title="fotoProfiloLuigi" alt="Foto di Luigi" src="immagini/luigi.png">
+                                </div>
+                                <p>Mario, guarda come eravamo giovani!</p>
+                                <div id="fotoL">
+                                <img alt="Foto di Mario e Luigi" src="immagini/MeL.jpg">
+                                </div>
+                            </div>
                         </c:if>
                         <c:if test="${post.postType == 'LINK'}">
                             <div id="crash" class="post">

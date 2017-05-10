@@ -1,0 +1,30 @@
+Utente:
+-id(Primary Key)
+-nome
+-cognome
+-email
+-password
+-urlProfilo
+-dataNascita
+-presentazione
+
+Post:
+-id(Primary Key)
+-user(Foreign Key)
+-contenutoTesto
+-url
+-tipoPost(Foreign Key)
+
+TipoPost:
+-id(Primary Key)
+-tipo
+
+Gruppo:
+-id(Primary Key)
+-nome
+-amministratore(Foreign Key)
+
+UtentePerOgniGruppo:
+-id(Primary Key)
+-idGruppo(Foreign Key)
+-idUtente(Foreign Key)

@@ -12,21 +12,20 @@ package amm.nerdbook.classi;
 public class Post {
 
     public enum Type {
-        TEXT, IMAGE, LINK
+        IMAGE, LINK, NULL
     };
 
     protected int id;
     protected UtenteRegistrato user;
-    private String contentImmagine, contentText, contentLink;
+    private String contentText, url;
     private Type postType;
 
     public Post() {
         id = 0;
         user = null;
-        contentImmagine = "";
         contentText = "";
-        contentLink = "";
-        postType = Type.TEXT;
+        url = "";
+        postType = Type.NULL;
     }
 
     /**
@@ -74,15 +73,16 @@ public class Post {
     /**
      * @return the contentImmagine
      */
-    public String getContentImmagine() {
-        return contentImmagine;
+    public String getContentUrl() {
+        return url;
     }
 
     /**
-     * @param contentImmagine the contentImmagine to set
+     * @param url
+     * @param ContentUrl the ContentUrl to set
      */
-    public void setContentImmagine(String contentImmagine) {
-        this.contentImmagine = contentImmagine;
+    public void setContentUrl(String url) {
+        this.url = url;
     }
 
     /**
@@ -99,18 +99,5 @@ public class Post {
         this.contentText = contentText;
     }
 
-    /**
-     * @return the contentLink
-     */
-    public String getContentLink() {
-        return contentLink;
-    }
-
-    /**
-     * @param contentLink the contentLink to set
-     */
-    public void setContentLink(String contentLink) {
-        this.contentLink = contentLink;
-    }
 
 }

@@ -33,36 +33,34 @@ public class PostFactory {
 
         //Creazione Post
         Post post1 = new Post();
-        post1.setContentImmagine("");
-        post1.setContentLink("");
         post1.setContentText("Luigi, ti aspetto in pista!");
         post1.setId(0);
+        post1.setContentUrl("");
         post1.setUser(utentiRegistratiFactory.getUtentiRegistratiById(0));
-
+        post1.setPostType(Post.Type.NULL);
+         
         Post post2 = new Post();
-        post2.setContentImmagine("");
-        post2.setContentLink("");
         post2.setContentText("Preparati ad affrontare la mia ira, Crash Bandicoot!");
         post2.setId(1);
-        post2.setUser(utentiRegistratiFactory.getUtentiRegistratiById(0));
+        post1.setContentUrl("");
+        post2.setUser(utentiRegistratiFactory.getUtentiRegistratiById(1));
         post2.setPostType(Post.Type.IMAGE);
         
         Post post3 = new Post();
-        post3.setContentImmagine("");
-        post3.setContentLink("");
         post3.setContentText("Ehi Cortex, dai un'occhiata qua: https://www.youtube.com/watch?v=DYjcZ5e5-iM");
         post3.setId(2);
-        post3.setUser(utentiRegistratiFactory.getUtentiRegistratiById(1));
+        post1.setContentUrl("");
+        post3.setUser(utentiRegistratiFactory.getUtentiRegistratiById(2));
         post3.setPostType(Post.Type.LINK);
         
         Post post4 = new Post();
         
         post4.setId(3);
-        post4.setUser(utentiRegistratiFactory.getUtentiRegistratiById(1));
+        post4.setUser(utentiRegistratiFactory.getUtentiRegistratiById(3));
         post4.setPostType(Post.Type.IMAGE);
-        post4.setContentImmagine("");
-        post4.setContentLink("");
+        post1.setContentUrl("");
         post4.setContentText("Mario, guarda come eravamo giovani!");
+        
         listaPost.add(post1);
         listaPost.add(post2);
         listaPost.add(post3);
