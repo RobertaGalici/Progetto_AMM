@@ -40,11 +40,11 @@ public class UtenteRegistratoFactory {
         
         //Neo Cortex
         UtenteRegistrato utente2 = new UtenteRegistrato();
-        utente2.setId(2);
+        utente2.setId(1);
         utente2.setNome("Neo");
         utente2.setCognome("Cortex");
         utente2.setEmail("cortex@gmail.com");
-        utente1.setDataNascita("04/12/1930");
+        utente2.setDataNascita("04/12/1930");
         utente2.setPassword("9001");
         utente2.setUrlProfilo("img/neocortex.jpg");
         utente2.setPresentazione("Ciao, sono Cortex e sono un super cattivo! Mhuahahahah");
@@ -55,13 +55,14 @@ public class UtenteRegistratoFactory {
         utente3.setNome("Crash");
         utente3.setCognome("Bandicoot");
         utente3.setEmail("crashbandicoot@gmail.com");
+        utente3.setDataNascita("22/07/1910");
         utente3.setPassword("5678");
-        utente3.setUrlProfilo("");
+        utente3.setUrlProfilo("crash.jpg");
         utente3.setPresentazione("Ciao, sono Crash!");
 
         //Luigi
         UtenteRegistrato utente4 = new UtenteRegistrato();
-        utente4.setId(1);
+        utente4.setId(3);
         utente4.setNome("Luigi");
         utente4.setCognome("Bros");
         utente4.setEmail("luigino@gmail.com");

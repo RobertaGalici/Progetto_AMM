@@ -54,7 +54,8 @@ CREATE TABLE utentePerOgniGruppo(
     gruppo INTEGER,
     PRIMARY KEY (utente, gruppo)
 );
-/*DA FARE*/
+
+/*Popolo la tabella relativa agli utenti*/
 INSERT INTO utente (id, nome, cognome, email, password, urlProfilo, dataNascita, presentazione)
 VALUES (0,
         'Mario',
@@ -72,5 +73,19 @@ VALUES (0,
         'img/neocortex.jpg',
         '1930-12-04',
         'Ciao, sono Cortex e sono un super cattivo! Mhuahahahah'),
-
-        );
+        (2,
+        'Crash',
+        'Bandicoot',
+        'crashbandicoot@gmail.com',
+        '5678',
+        'img/crash.jpg',
+        '1910-07-22',
+        'Ciao, sono Crash!'),
+        (3,
+        'Luigi',
+        'Bros',
+        'luigino@gmail.com',
+        '1234',
+        'img/luigi.png',
+        '1930-07-16',
+        'Ciao, sono Luigi!');
