@@ -35,21 +35,21 @@ public class PostFactory {
         Post post1 = new Post();
         post1.setContentText("Luigi, ti aspetto in pista!");
         post1.setId(0);
-        post1.setContentUrl("");
+        post1.setContentUrl("img/SuperMario.jpg");
         post1.setUser(utentiRegistratiFactory.getUtentiRegistratiById(0));
         post1.setPostType(Post.Type.NULL);
          
         Post post2 = new Post();
         post2.setContentText("Preparati ad affrontare la mia ira, Crash Bandicoot!");
         post2.setId(1);
-        post1.setContentUrl("");
+        post2.setContentUrl("img/neocortex.jpg");
         post2.setUser(utentiRegistratiFactory.getUtentiRegistratiById(1));
         post2.setPostType(Post.Type.IMAGE);
         
         Post post3 = new Post();
         post3.setContentText("Ehi Cortex, dai un'occhiata qua: https://www.youtube.com/watch?v=DYjcZ5e5-iM");
         post3.setId(2);
-        post1.setContentUrl("");
+        post3.setContentUrl("img/crash.jpg");
         post3.setUser(utentiRegistratiFactory.getUtentiRegistratiById(2));
         post3.setPostType(Post.Type.LINK);
         
@@ -58,7 +58,7 @@ public class PostFactory {
         post4.setId(3);
         post4.setUser(utentiRegistratiFactory.getUtentiRegistratiById(3));
         post4.setPostType(Post.Type.IMAGE);
-        post1.setContentUrl("");
+        post4.setContentUrl("img/luigi.png");
         post4.setContentText("Mario, guarda come eravamo giovani!");
         
         listaPost.add(post1);

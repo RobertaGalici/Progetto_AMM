@@ -40,10 +40,12 @@
                                <img title="fotoProfiloMario" alt="Foto di Mario" src="${utente1.urlProfilo}">
                             </div>
                             <p>${post1.contentText}</p>
-                        </div>  
+                        </div>
+                        
                         
                         </c:if>
                         <c:if test="${post.postType == 'IMAGE'}">
+                           
                            <div id="cortex" class="post">
                                 <h3>${utente2.nome} ${utente2.cognome}</h3>
                                 <div id="fotoC">
@@ -56,11 +58,11 @@
                            </div>
                             
                             <div id="luigi" class="post">
-                                <h3>Luigi</h3>
+                                <h3>${utente3.nome} ${utente3.cognome}</h3>
                                 <div id="fotoLmini">
                                 <img title="fotoProfiloLuigi" alt="Foto di Luigi" src="immagini/luigi.png">
                                 </div>
-                                <p>Mario, guarda come eravamo giovani!</p>
+                                <p>${post3.contentText}</p>
                                 <div id="fotoL">
                                 <img alt="Foto di Mario e Luigi" src="immagini/MeL.jpg">
                                 </div>
