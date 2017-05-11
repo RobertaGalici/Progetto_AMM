@@ -5,6 +5,8 @@
  */
 package amm.nerdbook.servlet;
 
+import amm.nerdbook.classi.Gruppo;
+import amm.nerdbook.classi.GruppoFactory;
 import amm.nerdbook.classi.Post;
 import amm.nerdbook.classi.PostFactory;
 import amm.nerdbook.classi.UtenteRegistrato;
@@ -60,6 +62,9 @@ public class Bacheca extends HttpServlet {
 
                 List<UtenteRegistrato> listaUtenti = UtenteRegistratoFactory.getInstance().getUserList();
                 request.setAttribute("users",listaUtenti);
+                
+                List<Gruppo> listaGruppoPost = GruppoFactory.getInstance().getGroupList();
+                request.setAttribute("groups",listaGruppoPost);
                 
                 request.getRequestDispatcher("bacheca.jsp").forward(request, response);
             } else {

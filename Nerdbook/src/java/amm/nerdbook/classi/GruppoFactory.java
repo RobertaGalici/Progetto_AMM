@@ -53,6 +53,10 @@ public class GruppoFactory {
         listaGruppoPost.add(gruppo2);
     }
     
+    public List getGroupList(){
+        return listaGruppoPost;
+    }
+    
     public Gruppo getGroupById(int id) {
         for (Gruppo gruppo : this.listaGruppoPost) {
             if (gruppo.getId() == id) {
