@@ -12,3 +12,9 @@ os.arch=x86_64
 os.version=10.10.5
 derby.system.home=/Users/Robi/Desktop/Amm/Progetto_AMM/Nerdbook/web/WEB-INF/db
 Programma di caricamento classe database avviato - derby.database.classpath=''
+----------------------------------------------------------------
+Fri May 12 11:42:42 CEST 2017: arresto in corso del motore di Derby
+----------------------------------------------------------------
+Fri May 12 11:42:43 CEST 2017:
+Arresto dell'istanza a816c00e-015b-fbd3-7793-00007adf9dca nella directory del database /Users/Robi/Desktop/Amm/Progetto_AMM/Nerdbook/web/WEB-INF/db/ammdb con il caricatore di classi sun.misc.Launcher$AppClassLoader@6f94fa3e 
+----------------------------------------------------------------

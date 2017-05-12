@@ -25,6 +25,7 @@ public class GruppoFactory {
     }
 
     private ArrayList<Gruppo> listaGruppoPost = new ArrayList<Gruppo>();
+    private String connectionString;
 
     private GruppoFactory() {
         
@@ -64,5 +65,13 @@ public class GruppoFactory {
             }
         }
         return null;
+    }
+    
+    public void setConnectionString(String s){
+	this.connectionString = s;
+    }
+    
+    public String getConnectionString(){
+	return this.connectionString;
     }
 }

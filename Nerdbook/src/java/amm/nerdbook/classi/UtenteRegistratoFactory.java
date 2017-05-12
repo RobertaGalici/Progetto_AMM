@@ -23,6 +23,7 @@ public class UtenteRegistratoFactory {
     }
 
     private ArrayList<UtenteRegistrato> listaUtentiRegistrati = new ArrayList<UtenteRegistrato>();
+    private String connectionString;
 
     private UtenteRegistratoFactory() {
         //Creazione utenti
@@ -101,5 +102,13 @@ public class UtenteRegistratoFactory {
     
     public List getUserList() {
         return listaUtentiRegistrati;
+    }
+        
+    public void setConnectionString(String s){
+	this.connectionString = s;
+    }
+    
+    public String getConnectionString(){
+	return this.connectionString;
     }
 }

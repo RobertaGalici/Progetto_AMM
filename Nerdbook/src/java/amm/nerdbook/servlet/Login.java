@@ -5,9 +5,14 @@
  */
 package amm.nerdbook.servlet;
 
+import amm.nerdbook.classi.GruppoFactory;
+import amm.nerdbook.classi.PostFactory;
 import amm.nerdbook.classi.UtenteRegistratoFactory;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,9 +22,14 @@ import javax.servlet.http.HttpSession;
  *
  * @author Robi
  */
+@WebServlet(name = "Login", urlPatterns = {"/login.jsp"}, loadOnStartup = 0)
 
 public class Login extends HttpServlet {
-
+    
+    private static final String JDBC_DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
+    private static final String DB_CLEAN_PATH = "../../web/WEB-INF/db/ammdb";
+    private static final String DB_BUILD_PATH = "WEB-INF/db/ammdb";
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -81,7 +91,21 @@ public class Login extends HttpServlet {
         */
         request.getRequestDispatcher("login.jsp").forward(request, response);
     }
-
+    
+    @Override
+   public void init(){
+       String dbConnection = "jdbc:derby:" + this.getServletContext().getRealPath("/") + DB_BUILD_PATH;
+       try {
+           Class.forName(JDBC_DRIVER);
+       } catch (ClassNotFoundException ex) {
+           Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       
+       GruppoFactory.getInstance().setConnectionString(dbConnection);
+       UtenteRegistratoFactory.getInstance().setConnectionString(dbConnection);
+       PostFactory.getInstance().setConnectionString(dbConnection);
+   }
+        
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -96,6 +120,7 @@ public class Login extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
+
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -122,3 +147,4 @@ public class Login extends HttpServlet {
     }// </editor-fold>
 
 }
+

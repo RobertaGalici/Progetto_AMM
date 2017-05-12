@@ -26,6 +26,7 @@ public class PostFactory {
     }
 
     private ArrayList<Post> listaPost = new ArrayList<Post>();
+    private String connectionString;
 
     private PostFactory() {
         
@@ -86,6 +87,15 @@ public class PostFactory {
             }
         }
         return listaPost;
+    }
+    
+        
+    public void setConnectionString(String s){
+	this.connectionString = s;
+    }
+    
+    public String getConnectionString(){
+	return this.connectionString;
     }
 
 }
