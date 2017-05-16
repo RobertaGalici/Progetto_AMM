@@ -20,6 +20,7 @@ CREATE TABLE utente(
     urlProfilo VARCHAR(256),
     dataNascita DATE,
     presentazione VARCHAR(256)
+    --idUtente
 );
 
 /*Creo la tabella relativa al tipo di url: IMAGE, LINK, NULL*/
@@ -142,4 +143,4 @@ INSERT INTO gruppo(id, nome, amministratore, descrizione)
                 'Playstation',
                 0,
                 'Ciao a tutti, se siete dei grandi fan della Sony, quindi della playstation unitevi a noi!');
- 
+ /*aggiungi idpost e idgruppo*/

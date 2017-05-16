@@ -11,6 +11,14 @@ package amm.nerdbook.classi;
  */
 public class Post {
 
+    void setPostType(String tipoPost) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void setUser(String utente) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public enum Type {
         IMAGE, LINK, NULL
     };

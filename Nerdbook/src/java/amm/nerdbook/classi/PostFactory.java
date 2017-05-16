@@ -10,6 +10,11 @@ package amm.nerdbook.classi;
  * @author Robi
  */
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -24,79 +29,154 @@ public class PostFactory {
         }
         return singleton;
     }
-
-    private ArrayList<Post> listaPost = new ArrayList<Post>();
-    private String connectionString;
-
-    private PostFactory() {
-        
-        UtenteRegistratoFactory utentiRegistratiFactory = UtenteRegistratoFactory.getInstance();
-
-        //Creazione Post
-        Post post1 = new Post();
-        post1.setContentText("Luigi, ti aspetto in pista!");
-        post1.setId(0);
-        post1.setContentUrl("img/SuperMario.jpg");
-        post1.setUser(utentiRegistratiFactory.getUtentiRegistratiById(0));
-        post1.setPostType(Post.Type.NULL);
-         
-        Post post2 = new Post();
-        post2.setContentText("Preparati ad affrontare la mia ira, Crash Bandicoot!");
-        post2.setId(1);
-        post2.setContentUrl("img/neocortex.jpg");
-        post2.setUser(utentiRegistratiFactory.getUtentiRegistratiById(1));
-        post2.setPostType(Post.Type.IMAGE);
-        
-        Post post3 = new Post();
-        post3.setContentText("Ehi Cortex, dai un'occhiata qua: https://www.youtube.com/watch?v=DYjcZ5e5-iM");
-        post3.setId(2);
-        post3.setContentUrl("img/crash.jpg");
-        post3.setUser(utentiRegistratiFactory.getUtentiRegistratiById(2));
-        post3.setPostType(Post.Type.LINK);
-        
-        Post post4 = new Post();
-        
-        post4.setId(3);
-        post4.setUser(utentiRegistratiFactory.getUtentiRegistratiById(3));
-        post4.setPostType(Post.Type.IMAGE);
-        post4.setContentUrl("img/luigi.png");
-        post4.setContentText("Mario, guarda come eravamo giovani!");
-        
-        listaPost.add(post1);
-        listaPost.add(post2);
-        listaPost.add(post3);
-        listaPost.add(post4);
-    }
-
-    public Post getPostById(int id) {
-        for (Post post : this.listaPost) {
-            if (post.getId() == id) {
-                return post;
-            }
-        }
-        return null;
-    }
-
-    public List getPostList(UtenteRegistrato users) {
-
-        List<Post> listaPost = new ArrayList<Post>();
-
-        for (Post post : this.listaPost) {
-            if (post.getUser().equals(users)) {
-                listaPost.add(post);
-            }
-        }
-        return listaPost;
-    }
     
-        
-    public void setConnectionString(String s){
+     public void setConnectionString(String s){
 	this.connectionString = s;
     }
     
     public String getConnectionString(){
 	return this.connectionString;
     }
+    
+    private ArrayList<Post> listaPost = new ArrayList<Post>();
+    private String connectionString;
 
+    private PostFactory() {}
+
+    public Post getPostById(int id) {
+        try{
+            Connection conn = DriverManager.getConnection(connectionString, "nerd", "nerd"); 
+            
+            //query di stringa
+            String query = 
+                    "select * from post "
+                    + "join tipoPost on tipoUrl.tipo = tipoPost.id" // al posto di id = idTipoPost da fare
+                    + "where id = ?"; //id = idPost 
+          
+            PreparedStatement stmt = conn.prepareStatement(query); //processa query
+            
+            stmt.setInt(1, id);
+            
+            ResultSet res = stmt.executeQuery();
+            
+            if(res.next()){
+                Post user = new Post();
+                
+                //imposto id del post
+                user.setId(res.getInt("id")); //idPost
+                user.setUser(res.getString("utente"));
+                //impost il contenuto del post
+                user.setContentText(res.getString("contentText"));
+                //imposto il tipo del post
+                user.setPostType(this.postTypeFromString(res.getString("tipoPost")));
+                //MOD UtenteRegistrato utente = UtenteRegistratoFactory.getUtenteById(res.getInt("utente"));
+                //imposto l'autore del post
+                //MOD user.setUser(utente);
+                
+                stmt.close();
+                conn.close();
+                return user;
+            }
+            stmt.close();
+            conn.close();
+               
+        }
+        catch(SQLException e ){}
+        
+        return null;
+        
+    }
+    
+    private Post.Type postTypeFromString(String type){
+        
+        if(type.equals("IMAGE"))
+            return Post.Type.IMAGE;
+        else{
+            if(type.equals("LINK"))
+                return Post.Type.LINK;
+        }
+        
+        return Post.Type.NULL;
+    }
+
+    public List getPostList(UtenteRegistrato users) {
+
+        List<Post> listaPost = new ArrayList<Post>();
+        try{
+            Connection conn = DriverManager.getConnection(connectionString, "nerd", "nerd"); 
+            
+            //query di stringa
+             String query = 
+                    "select * from post "
+                    + "join tipoPost on tipoUrl.tipo = tipoPost.id" // al posto di id = idTipoPost da fare
+                    + "where autore = ?"; //id = idPost 
+          
+            PreparedStatement stmt = conn.prepareStatement(query); //processa query
+            
+            //MOD stmt.setString(1, users.getId());
+            
+            ResultSet res = stmt.executeQuery();
+            
+            while(res.next()){
+                Post user = new Post();
+                user.setId(res.getInt("id")); //idPost
+                user.setUser("utente");
+                user.setContentText("contentText");
+                user.setContentUrl("url");
+                user.setPostType("tipoPost");
+                
+                listaPost.add(user);
+                        
+                
+            }
+            
+            stmt.close();
+            conn.close();
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        return listaPost;
+    }
+    
+    public void addNewPost(Post post){
+        try {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "nerd", "nerd");
+            
+            String query = 
+                      "insert into posts (id, utente, contentText, url, tipoPost) "
+                    + "values (default, ? , ? , ? , ? )";
+            
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            // Si associano i valori
+            stmt.setString(1, post.getContentText());
+
+            stmt.setInt(2, this.postTypeFromEnum(post.getPostType()));
+            
+            stmt.setInt(3, post.getUser().getId());
+            
+            // Esecuzione query
+            stmt.executeUpdate(); //per aggiornare, inserire o cancellare dati uso executeUpdate
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+    
+    
+    
+    private int postTypeFromEnum(Post.Type type){
+        
+        if(type == Post.Type.NULL)
+                return 0;
+        else{
+            if(type == Post.Type.LINK)
+                return 2;
+        }
+        return 1; //se è IMAGE
+    }
 }
 

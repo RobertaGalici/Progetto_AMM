@@ -9,6 +9,7 @@ import amm.nerdbook.classi.GruppoFactory;
 import amm.nerdbook.classi.PostFactory;
 import amm.nerdbook.classi.UtenteRegistratoFactory;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -22,7 +23,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Robi
  */
-@WebServlet(name = "Login", urlPatterns = {"/login.jsp"}, loadOnStartup = 0)
+@WebServlet(loadOnStartup = 0)
 
 public class Login extends HttpServlet {
     
@@ -31,7 +32,7 @@ public class Login extends HttpServlet {
     private static final String DB_BUILD_PATH = "WEB-INF/db/ammdb";
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
 
         //Apertura della sessione
@@ -118,7 +119,11 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 
@@ -133,7 +138,11 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

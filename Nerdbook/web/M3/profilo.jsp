@@ -44,9 +44,7 @@
                 <label for="urlImg">URL dell'immagine del profilo:</label>
                 <input type="url" name="URL" id="urlImg" value="${user.urlProfilo}"/>
                 <label for="presentazione">Presentati:</label>
-                <textarea rows="4" cols="20"
-                          name="lungo" id="presentazione" value="${user.presentazione}"/>Scrivi qua...
-                </textarea>
+                <textarea rows="4" cols="20" name="lungo" id="presentazione" value="${user.presentazione}"/>Scrivi qua...</textarea>
                 <label for="data">Data di nascita:</label>
                 <input type="date" name="data" id="data"/>
                 <label for="passw">Password:</label>
