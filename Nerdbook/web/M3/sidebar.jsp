@@ -9,14 +9,18 @@
 <!DOCTYPE html>
 <div id="persone">
     <h2>Persone:</h2>
-    <p>Mario Bros</p>
-    <p>Luigi</p>
-    <p>Crash Bandicoot</p>
-    <p>Dott. Neo Periwinkle Cortex</p>
+        <ol>   
+            <li><a href = "bacheca.jsp">Mario Bros</a></li>
+            <li><a href = "bacheca.jsp">Luigi</a></li>
+            <li><a href = "bacheca.jsp">Crash Bandicoot</a></li>
+            <li><a href = "bacheca.jsp">Dott. Neo Periwinkle Cortex</a></li>
+        </ol>
 </div>
         
 <div id="gruppi">
     <h2>Gruppi:</h2>
-    <p>Nintendo</p>
-    <p>Playstation</p>
+        <ol> 
+            <li><a href = "bacheca.jsp">Nintendo</a></li>
+            <li><a href = "bacheca.jsp">Playstation</a></li>
+        </ol> 
 </div>

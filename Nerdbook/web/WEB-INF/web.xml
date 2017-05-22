@@ -13,7 +13,7 @@
         <servlet-class>amm.nerdbook.servlet.Profilo</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>NewServlet</servlet-name>
+        <servlet-name>NewPost</servlet-name>
         <servlet-class>amm.nerdbook.servlet.NewPost</servlet-class>
     </servlet>
     <servlet-mapping>
