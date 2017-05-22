@@ -38,8 +38,24 @@ public class Bacheca extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         response.setContentType("text/html;charset=UTF-8");
         HttpSession sessione = request.getSession(false);
+        
+        String canc = request.getParameter("cancella");
+        
+        if(request.getParameter("cancella") != null){
+            
+            Integer loggedUserID = (Integer) sessione.getAttribute("loggedUserID");
+            int idUser = loggedUserID;
+            
+            
+            int idcanc= Integer.parseInt(request.getParameter("cancella"));
+            PostFactory.getInstance().deletePost(idcanc, idUser);
+            response.setIntHeader("Refresh", 0);
+                
+        }
+
         
         if(sessione!=null && sessione.getAttribute("loggedIn")!=null && sessione.getAttribute("loggedIn").equals(true)){
             
