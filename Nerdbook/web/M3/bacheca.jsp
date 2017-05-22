@@ -28,6 +28,9 @@
             
         <c:set var="page" value="sidebar" scope="request"/>
         <jsp:include page="sidebar.jsp"/>
+        
+        <c:set var="page" value="newPost" scope="request"/>
+        <jsp:include page="newPost.jsp"/>
                 
         
             <div id="divBody">

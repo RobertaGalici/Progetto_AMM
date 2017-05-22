@@ -37,7 +37,7 @@
                             <div id="postType">
                                 <div>
                                     <label for="textType">Post con Link</label>
-                                    <input type="radio" name="postType" value="textType" id="linkType" checked="checked">
+                                    <input type="radio" name="postType" value="linkType" id="linkType" checked="checked">
                                 </div>
                                 <div>
                                     <label for="imgType">Post con Foto</label>
