@@ -77,6 +77,19 @@
                         </c:if>
                     
                 </c:forEach>
+                
+                 <div id="newPost">
+                    <form action="confermaPost.jsp" method="POST">
+                        <input type="hidden" name="bachecaTarget" value="${user.id}"/>
+                        <textarea name="textPost" id="textPost">Testo post</textarea>
+                        <input type="url" name="urlPost" id="urlPost" value="http://google.com"/>
+                        <label for="textType">Immagine</label>
+                        <input type="radio" name="postType" value="imgType" id="textType">
+                        <label for="textType">Link</label>
+                        <input type="radio" name="postType" value="linktType" id="textType">
+                        <button type="submit">Pubblica</button> 
+                    </form>
+                </div>
    
             </div>
             

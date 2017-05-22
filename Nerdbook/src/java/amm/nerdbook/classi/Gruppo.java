@@ -14,9 +14,23 @@ import java.util.ArrayList;
 
 public class Gruppo {
 
+    /**
+     * @return the amministratore
+     */
+    public UtenteRegistrato getAmministratore() {
+        return amministratore;
+    }
+
+    /**
+     * @param amministratore the amministratore to set
+     */
+    public void setAmministratore(UtenteRegistrato amministratore) {
+        this.amministratore = amministratore;
+    }
+
     
-    
-    private List <UtenteRegistrato> utenteGruppo ;
+    private UtenteRegistrato amministratore;
+    private List <UtenteRegistrato> utenteGruppo ; //Da modificare??
     private int id;
     private String nome;
     private String descrizione;

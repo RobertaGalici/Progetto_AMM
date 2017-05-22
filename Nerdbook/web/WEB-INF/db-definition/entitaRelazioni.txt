@@ -20,7 +20,7 @@ tipoUrl: 2
 -tipo
 
 gruppo:4
--id(Primary Key)
+-idGruppo(Primary Key)
 -nome
 -amministratore(Foreign Key)
 

@@ -9,6 +9,11 @@ package amm.nerdbook.classi;
  *
  * @author Robi
  */
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -27,44 +32,63 @@ public class GruppoFactory {
     private ArrayList<Gruppo> listaGruppoPost = new ArrayList<Gruppo>();
     private String connectionString;
 
-    private GruppoFactory() {
-        
-        UtenteRegistratoFactory utentiRegistratiFactory = UtenteRegistratoFactory.getInstance();
-        
-        UtenteRegistrato u0 = utentiRegistratiFactory.getUtentiRegistratiById(0);
-        UtenteRegistrato u1 = utentiRegistratiFactory.getUtentiRegistratiById(1);
-        UtenteRegistrato u2 = utentiRegistratiFactory.getUtentiRegistratiById(2);
-        UtenteRegistrato u3 = utentiRegistratiFactory.getUtentiRegistratiById(3);
-        
-        Gruppo gruppo1 = new Gruppo();
-        gruppo1.setId(0);
-        gruppo1.addUtente(u0);
-        gruppo1.addUtente(u1);
-        gruppo1.setNome("Nintendo");
-        gruppo1.setDescrizione("Ciao a tutti, se siete dei grandi fan della Nintendo, unitevi a noi!");
-
-        Gruppo gruppo2 = new Gruppo();
-        gruppo2.addUtente(u2);
-        gruppo2.addUtente(u3);
-        gruppo2.setId(1);
-        gruppo2.setNome("Playstation");
-        gruppo2.setDescrizione("Ciao a tutti, se siete dei grandi fan della Sony, quindi della playstation unitevi a noi!");
-
-        listaGruppoPost.add(gruppo1);
-        listaGruppoPost.add(gruppo2);
-    }
+    private GruppoFactory() {}
     
     public List getGroupList(){
         return listaGruppoPost;
     }
     
     public Gruppo getGroupById(int id) {
-        for (Gruppo gruppo : this.listaGruppoPost) {
-            if (gruppo.getId() == id) {
+        
+        //GruppoFactory gruppoFactory = GruppoFactory.getInstance();
+        UtenteRegistratoFactory utenteFactory = UtenteRegistratoFactory.getInstance();
+        try{
+            //nerd = username e password del database creato
+            //Connessione al database
+            Connection conn = DriverManager.getConnection(connectionString, "nerd", "nerd"); 
+            
+            //query di stringa
+            String query = 
+                    " select * from gruppo "
+                    + " join utentePerOgniGruppo on utentePerOgniGruppo.gruppo = gruppo.idGruppo "
+                    + " where idGruppo = ? ";
+            
+            PreparedStatement stmt = conn.prepareStatement(query); //processa query
+            
+            //previene gli attacchi di tipo Injection
+            stmt.setInt(1, id); //se trovo caratteri non validi la gestisco io, es con un errore
+            
+            //set di risultati della query
+            ResultSet res = stmt.executeQuery();
+            
+            if(res.next()){
+                Gruppo gruppo = new Gruppo();
+                
+                gruppo.setId(res.getInt("idGruppo"));
+                gruppo.setNome(res.getString("nome"));
+                gruppo.setDescrizione(res.getString("descrizione"));
+                UtenteRegistrato amministratore = utenteFactory.getUtentiRegistratiById(res.getInt("amministratore"));
+                gruppo.setAmministratore(amministratore);
+                //MOD gruppo.setUtentiGruppo(res.getString("gruppo")); ???
+                //chiudo le connessioni sia se viene eseguita
+                //se non chiudo le connessioni non posso eseguire altre query:
+                //devo aspettare che termini la sessione
+                stmt.close();
+                conn.close();
+                
                 return gruppo;
             }
+            
+                //chiudo le connessioni sia se non viene eseguita
+                stmt.close();
+                conn.close();
+                
+        }
+        catch(SQLException e ){
+            e.printStackTrace();
         }
         return null;
+
     }
     
     public void setConnectionString(String s){

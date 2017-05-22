@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>NerdBook</title>
+        
+        <meta charset="UTF-8">
+        <!-- Specifico il charset esplicitamente con un tag meta, cosi da poter usare i caratteri accentati -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Roberta Galici">
+        <meta name="keywords" content="nerdbook nerd social network amici amicizie nuovi">
+        
+        <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+        
+    </head>
+
+    <body>
+         <div id="header">
+        <div id="title">
+            <h1>NerdBook</h1>
+            <!-- Titolo -->
+        </div>
+        <!--Barra di navigazione tra le pagine del sito-->
+        <nav>    
+            <ol>
+                <li><a href="profilo.html">Profilo</a></li>
+                <li><a href="bacheca.html">Bacheca</a></li>
+                <li><a href="descrizione.html">Descrizione</a></li>
+                <li><a href="login.html">Login</a></li>    
+            </ol>
+                
+        </nav>
+        
+        <div id="persone">
+            <h2>Persone:</h2>
+            <p>Mario Bros</p>
+            <p>Luigi</p>
+            <p>Crash Bandicoot</p>
+            <p>Dott. Neo Periwinkle Cortex</p>
+        </div>
+        
+        <div id="gruppi">
+            <h2>Gruppi:</h2>
+            <p>Nintendo</p>
+            <p>Playstation</p>
+        </div>
+
+        <!--Contenuti della pagina-->
+        <div id="divBody">
+            <div id="formNewPost">
+                <form action="servlet.java" method="post">
+                    <div id="postType">
+                        <div>
+                            <label for="textType">Post con Link</label>
+                            <input type="radio" name="postType" value="linkType" id="linkType">
+                        </div>
+                        <div>
+                            <label for="imgType">Post con Foto</label>
+                            <input type="radio" name="postType" value="imgType" id="imgType">
+                        </div>
+                    </div>
+                    <div id="postContent">
+                        <div>
+                            <label for="textPost">Testo</label>
+                            <textarea name="textPost" id="textPost"></textarea>
+                        </div>
+                        <div>
+                            <label for="imgPost">File d'immagine</label>
+                            <input type="file" name="imgPost" id="imgPost">
+                        </div>
+                    </div>
+                    <button type="submit">Invia</button>
+                </form>
+            </div>
+        </div>
+         </div>
+    </body>
+</html>

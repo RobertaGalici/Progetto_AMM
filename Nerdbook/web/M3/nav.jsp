@@ -32,6 +32,14 @@
                     <li><p>Mario Bros</p><a href="login.html">Logout</a></li>
 
                 </c:when>    
+                <c:when test="${page==newPost}">
+                
+                    <li><a href="profilo.html">Profilo</a></li>
+                    <li><a href="bacheca.html">Bacheca</a></li>
+                    <li><a href="descrizione.html">Descrizione</a></li>
+                    <li><a href="login.html">Login</a></li>
+
+                </c:when>    
                 
         </c:choose>
         

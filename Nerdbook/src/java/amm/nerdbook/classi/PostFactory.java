@@ -44,6 +44,7 @@ public class PostFactory {
     private PostFactory() {}
 
     public Post getPostById(int id) {
+        UtenteRegistratoFactory utenteFactory = UtenteRegistratoFactory.getInstance();
         try{
             Connection conn = DriverManager.getConnection(connectionString, "nerd", "nerd"); 
             
@@ -69,9 +70,9 @@ public class PostFactory {
                 user.setContentText(res.getString("contentText"));
                 //imposto il tipo del post
                 user.setPostType(this.postTypeFromString(res.getString("tipoPost")));
-                //MOD UtenteRegistrato utente = UtenteRegistratoFactory.getUtenteById(res.getInt("utente"));
+                UtenteRegistrato utente = utenteFactory.getUtentiRegistratiById(res.getInt("utente"));
                 //imposto l'autore del post
-                //MOD user.setUser(utente);
+                user.setUser(utente);
                 
                 stmt.close();
                 conn.close();
@@ -113,21 +114,20 @@ public class PostFactory {
           
             PreparedStatement stmt = conn.prepareStatement(query); //processa query
             
-            //MOD stmt.setString(1, users.getId());
+            stmt.setInt(1, users.getId());
             
             ResultSet res = stmt.executeQuery();
             
             while(res.next()){
                 Post user = new Post();
                 user.setId(res.getInt("id")); //idPost
-                user.setUser("utente");
-                user.setContentText("contentText");
-                user.setContentUrl("url");
-                user.setPostType("tipoPost");
+                user.setUser(users);
+                user.setContentText(res.getString("contentText"));
+                user.setContentUrl(res.getString("url"));
+                user.setPostType(this.postTypeFromString(res.getString("tipoPost")));
                 
                 listaPost.add(user);
                         
-                
             }
             
             stmt.close();
@@ -165,8 +165,6 @@ public class PostFactory {
             e.printStackTrace();
         }
     }
-    
-    
     
     private int postTypeFromEnum(Post.Type type){
         
