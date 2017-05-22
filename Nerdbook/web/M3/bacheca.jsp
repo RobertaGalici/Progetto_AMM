@@ -18,7 +18,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Roberta Galici">
         <meta name="keywords" content="nerdbook nerd social network amici amicizie nuovi">
-        <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="M3/style.css" media="screen">
         
     </head>
     

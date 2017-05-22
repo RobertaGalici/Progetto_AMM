@@ -42,7 +42,7 @@ public class Login extends HttpServlet {
         if(request.getParameter("logout")!=null)
         {
             session.invalidate();
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("M3/login.jsp").forward(request, response);
             return;
         }
         
@@ -77,7 +77,7 @@ public class Login extends HttpServlet {
                     
                     //ritorno al form del login informandolo che i dati non sono validi
                     request.setAttribute("invalidData", true);
-                    request.getRequestDispatcher("login.jsp").forward(request, response);
+                    request.getRequestDispatcher("M3/login.jsp").forward(request, response);
                     return;
                 }
                 
@@ -90,7 +90,7 @@ public class Login extends HttpServlet {
           tentativo di accesso diretto alla servlet Login -> reindirizzo verso 
           il form di login.
         */
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+        request.getRequestDispatcher("M3/login.jsp").forward(request, response);
     }
     
     @Override
