@@ -163,20 +163,20 @@ a:hover{
     font-weight: bold;
 }
 
-#persone, #gruppi{
+#persone li a, #gruppi li a{
     text-align: left;
     background: #ccf3ff;
     position: fixed;
     
 }
 
-#gruppi{
+#gruppi li a{
     top: 290px;
     width: 200px;
     background-color: #ccf3ff;
 }
 
-#persone{
+#persone li a{
     top:40px;
     width: 200px;
     
@@ -251,11 +251,10 @@ a:hover{
 
 #loginHeader{
     margin-top: 60px;
-    margin-left: 375px;
     margin-bottom: 0px;
+    margin-left: 320px;
+    margin-right: 320px;
 
-
-    
 }
 #loginHeader h1{
     padding-left: 30px;
@@ -406,12 +405,12 @@ nav ol li p{
     left: 30px;
 }
 
-#persone{
+#persone li a{
     top: 100px;
     width: 190px;
 
 }
-#gruppi{
+#gruppi li a{
     top: 300px;
     width: 190px;
 }
@@ -470,7 +469,7 @@ nav ol li p {
 }
 
 #riquadroLogin form button{
-    left: 200px;
+    left: 375px;
     margin-left: 55px;
     width: 131px;
 }
@@ -479,6 +478,7 @@ nav ol li p {
     height: 130px;
     width: 250px;
     margin-left: 10px;
+    left: 375px;
 }
 
 #header nav ol p{
@@ -553,11 +553,11 @@ nav ol li p {
 
 }
 
-#persone{
+#persone li a{
     width: 140px;
 }
 
-#gruppi{
+#gruppi li a{
     width: 100px;
 }
 

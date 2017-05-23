@@ -24,7 +24,7 @@
     
     <div id="header">
     <div id="loginHeader">
-        <img title="fotoSito" src="immagini/logo.png" alt="LogoSito">
+        <img title="fotoSito" src="M3/immagini/logo.png" alt="LogoSito">
         <h1>NerdBook</h1>
         <!-- Titolo -->
     </div>
