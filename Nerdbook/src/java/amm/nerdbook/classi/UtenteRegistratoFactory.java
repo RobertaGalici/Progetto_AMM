@@ -11,8 +11,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-//import java.sql.Date;
-//import java.text.DateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Robi
@@ -52,7 +53,8 @@ public class UtenteRegistratoFactory {
             
             //set di risultati della query
             ResultSet res = stmt.executeQuery();
-            /*
+            /*  //user.setDataNascita(res.getDate("dataNascita"));
+            Con questo metodo non funziona. DATE?
             Date date;
             DateFormat df = new SimpleDataFormat("yyyy/mm/dd");
             String text = df.format(date);*/
@@ -66,6 +68,7 @@ public class UtenteRegistratoFactory {
                 user.setPassword(res.getString("password"));
                 user.setUrlProfilo(res.getString("urlProfilo"));
                 //user.setDataNascita(res.getDate("dataNascita"));
+                user.setDataNascita(res.getString("dataNascita"));
                 user.setPresentazione("presentazione");
                 
                 //chiudo le connessioni sia se viene eseguita
@@ -138,5 +141,208 @@ public class UtenteRegistratoFactory {
     
     public String getConnectionString(){
 	return this.connectionString;
+    }
+    
+    public void deleteUser(int idUtente){
+        Connection conn = null;
+        PreparedStatement stmtPost = null;
+        PreparedStatement stmtGroup = null;
+        PreparedStatement stmtGroups2 = null;
+        PreparedStatement stmtFriends = null;
+        PreparedStatement stmtUser = null;
+            
+        try {
+            // path, username, password
+            conn = DriverManager.getConnection(connectionString, "Nerdbook", "password");
+            conn.setAutoCommit(false);
+            
+            String deletePost = "delete from post "
+                       + "where utente = ? OR id = ?";
+            String deleteGroups = "delete from utentePerOgniGruppo "
+                             + "where utente = ? OR gruppo IN "
+                                + " (select id from gruppo "
+                                + " where amministratore = ?)";
+            String deleteGroups2 = "delete from gruppo "
+                             + "where amministratore = ?";
+            String deleteFriends = "delete from amicizie "
+                              + "where idUtente1 = ? OR idUtente2 = ?";
+            String deleteUser = "delete from utente "
+                           + "where id = ?";
+
+            // Prepared Statement
+            stmtPost = conn.prepareStatement(deletePost);
+            stmtGroup = conn.prepareStatement(deleteGroups);
+            stmtGroups2 = conn.prepareStatement(deleteGroups2);
+            stmtFriends = conn.prepareStatement(deleteFriends);
+            stmtUser = conn.prepareStatement(deleteUser);
+            // Si associano i valori
+            stmtPost.setInt(1, idUtente);
+            stmtPost.setInt(2, idUtente);
+            stmtGroup.setInt(1, idUtente);
+            stmtGroup.setInt(2, idUtente);
+            stmtGroups2.setInt(1, idUtente);
+            stmtFriends.setInt(1, idUtente);
+            stmtFriends.setInt(2, idUtente);
+            stmtUser.setInt(1, idUtente);
+            
+            // Esecuzione query
+            stmtPost.executeUpdate();
+            stmtGroup.executeUpdate();
+            stmtGroups2.executeUpdate();
+            stmtFriends.executeUpdate();
+            stmtUser.executeUpdate();
+            conn.commit();
+            
+        } catch (SQLException e) {
+            if(conn!=null){
+                try {
+                    conn.rollback();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UtenteRegistratoFactory.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+        } finally{
+            try {
+                if(stmtPost!=null)
+                    stmtPost.close();
+                if(stmtGroup!=null)
+                    stmtGroup.close();
+                if(stmtGroups2!=null)
+                    stmtGroups2.close();
+                if(stmtFriends!=null)
+                    stmtFriends.close();
+                if(stmtUser!=null)
+                    stmtUser.close();
+                if(conn!=null){
+                    conn.setAutoCommit(true);
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(UtenteRegistratoFactory.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+    }
+    
+    public int login(String nome, String password) {
+        try {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "nerd", "nerd");
+            
+            String query = 
+                      "select * id from utente "
+                    + "where nome = ? and password = ?";
+            
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            // Si associano i valori
+            stmt.setString(1, nome);
+            stmt.setString(2, password);
+            
+            // Esecuzione query
+            ResultSet res = stmt.executeQuery();
+            int utenteLoggato;
+                
+            if (res.next()) {
+                utenteLoggato = res.getInt("id");
+                
+                stmt.close();
+                conn.close();
+                return utenteLoggato;
+            }
+
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+    
+    public void aggiornaProfilo(UtenteRegistrato utente){
+        try {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "Nerdbook", "password");
+            
+            String query = 
+                    "UPDATE utente SET nome = ?, cognome = ?, email = ?, "
+                    + "password = ?, urlProfilo = ?, dataNascita = ?, presentazione = ? "
+                    + "WHERE id = ?";
+            
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            // Si associano i valori
+            stmt.setString(1, utente.getNome());
+            stmt.setString(2, utente.getCognome());
+            stmt.setString(3, utente.getEmail());
+            stmt.setString(4, utente.getPassword());
+            stmt.setString(5, utente.getPresentazione());
+            stmt.setString(6, utente.getUrlProfilo());
+            stmt.setString(7, utente.getDataNascita());
+            stmt.setInt(8,utente.getId());
+            // Esecuzione query
+            stmt.execute();
+
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }    
+    
+    //ritorna la lista degli utenti
+    public List getUtentiList(int id) {
+        
+        try {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "nerd", "nerd");
+            List<UtenteRegistrato> amici = new ArrayList<>();
+            String query = 
+                    "SELECT * FROM utente " +
+                    "JOIN amicizie ON utente.id = amicizie.idUtente1 " +
+                    "WHERE amicizie.idUtente2 = ? " +
+                    "UNION " +
+                    "SELECT * FROM utente " +
+                    "JOIN amicizie ON utente.id = amicizie.idUtente2 " +
+                    "WHERE amicizie.idUtente1 = ?";
+            
+            
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            // Si associano i valori
+            stmt.setInt(1, id);
+            stmt.setInt(2, id);
+            
+            // Esecuzione query
+            ResultSet res;
+            UtenteRegistrato current;
+            res = stmt.executeQuery();
+            
+            // ciclo sulle righe restituite
+            while (res.next()) {
+                current = new UtenteRegistrato();
+                current.setId(res.getInt("id"));
+                current.setNome(res.getString("nome"));
+                current.setCognome(res.getString("cognome"));
+                current.setPassword(res.getString("password"));
+                current.setEmail(res.getString("email"));
+                current.setUrlProfilo(res.getString("urlFoto"));
+                current.setPresentazione(res.getString("presentazione"));
+                current.setDataNascita(res.getString("dataNascita"));
+                amici.add(current);
+            }
+            
+            stmt.close();
+            conn.close();
+            return amici;
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

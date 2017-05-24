@@ -177,7 +177,7 @@ public class PostFactory {
         return 1; //se è IMAGE
     }
     
-    public void deletePost(int idPost, int idUser) {
+    public void deletePost(int idPost, int idUtente) {
 
         int idutente = -1;
 
@@ -185,41 +185,17 @@ public class PostFactory {
             //path, username, password
             Connection conn = DriverManager.getConnection(connectionString, "nerd", "nerd");
 
-            String query1 = "select * from post " + "where utente = ? ";
+            String query1 = "delete * from post " + "where id = ? ";
 
-            PreparedStatement stmtcontrol = conn.prepareStatement(query1);
+            PreparedStatement stmt = conn.prepareStatement(query1);
 
             // Si associano i valori
-            stmtcontrol.setInt(1, idUser);
+            stmt.setInt(1, idUtente);
 
-            ResultSet res = stmtcontrol.executeQuery();
+            ResultSet res = stmt.executeQuery();
             if (res.next()) {
                 idutente = res.getInt("utente");
 
-                stmtcontrol.close();
-                conn.close();
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        try {
-//fare controllo sulla bacheca diversa
-            if (idutente == idUser || idUser == 1) {
-                Connection conn = DriverManager.getConnection(connectionString, "nerd", "nerd");
-                String query
-                        = "delete from post "
-                        + "where id = ? ";
-                // Si associano i valori
-
-                PreparedStatement stmt = conn.prepareStatement(query);
-
-                // Si associano i valori
-                stmt.setInt(1, idPost);
-
-                // Esecuzione query
-                stmt.executeUpdate();
                 stmt.close();
                 conn.close();
             }
@@ -227,14 +203,15 @@ public class PostFactory {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
 
+    }
+    
     public void deleteAllPost(UtenteRegistrato utente) {
 
         try {
 
             Connection conn = DriverManager.getConnection(connectionString, "nerd", "nerd");
-            String query = "delete from post " + "where utente = ? ";
+            String query = "delete * from post " + "where utente = ? ";
             // Si associano i valori
 
             PreparedStatement stmt = conn.prepareStatement(query);

@@ -143,4 +143,18 @@ INSERT INTO gruppo(idGruppo, nome, amministratore, descrizione)
                 'Playstation',
                 0,
                 'Ciao a tutti, se siete dei grandi fan della Sony, quindi della playstation unitevi a noi!');
- /*aggiungi idpost e idgruppo*/
+ 
+CREATE TABLE amicizie(
+	idUtente1 INTEGER,
+	idUtente2 INTEGER,
+	FOREIGN KEY (idUtente1) REFERENCES utente(id),
+	FOREIGN KEY (idUtente2) REFERENCES utente(id)
+);
+
+INSERT INTO amicizie(idUtente1,idUtente2)
+VALUES (0, 1),
+       (0, 2),
+       (0, 3),
+       (1, 0),
+       (1, 2),
+       (1, 3);

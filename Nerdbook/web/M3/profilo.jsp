@@ -54,6 +54,9 @@
                 <button type="submit"> Registrati
                 </button>
             </form>
+            <form action="Profilo" method="post">
+                <button type="submit" name="delete">Cancella Account</button>
+            </form>
         </div>
 
         <div class="goTo">
