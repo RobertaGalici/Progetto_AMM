@@ -68,7 +68,7 @@ public class GruppoFactory {
                 gruppo.setNome(res.getString("nome"));
                 gruppo.setDescrizione(res.getString("descrizione"));
                 UtenteRegistrato amministratore = utenteFactory.getUtentiRegistratiById(res.getInt("amministratore"));
-                gruppo.setAmministratore(amministratore);
+                gruppo.setAmministratore(res.getInt("amministratore"));
                 //MOD gruppo.setUtentiGruppo(res.getString("gruppo")); ???
                 //chiudo le connessioni sia se viene eseguita
                 //se non chiudo le connessioni non posso eseguire altre query:
@@ -89,6 +89,41 @@ public class GruppoFactory {
         }
         return null;
 
+    }
+    
+    public List<Gruppo> getGroupsList()
+    {
+        List<Gruppo> ListaGruppi = new ArrayList<>();
+        
+        try {
+            Connection connessione = DriverManager.getConnection(connectionString, "nerd", "nerd");
+            
+            String query = "select * from gruppo";
+            
+            PreparedStatement frase = connessione.prepareStatement(query);
+            
+            ResultSet res = frase.executeQuery();
+
+            while (res.next()) {
+                Gruppo gruppoAttuale = new Gruppo();
+                
+                gruppoAttuale.setId(res.getInt("idGruppo"));
+                gruppoAttuale.setAmministratore(res.getInt("amministratore"));
+                gruppoAttuale.setNome(res.getString("nome"));
+                gruppoAttuale.setDescrizione(res.getString("descrizione"));
+
+                ListaGruppi.add(gruppoAttuale);
+            }
+            
+
+            frase.close();
+            connessione.close();
+        } catch (SQLException e) {
+            System.out.println("Errore");
+            e.printStackTrace();
+        }
+        
+        return ListaGruppi;
     }
     
     public void setConnectionString(String s){

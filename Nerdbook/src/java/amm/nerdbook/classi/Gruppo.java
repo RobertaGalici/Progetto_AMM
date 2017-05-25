@@ -17,19 +17,19 @@ public class Gruppo {
     /**
      * @return the amministratore
      */
-    public UtenteRegistrato getAmministratore() {
+    public int getAmministratore() {
         return amministratore;
     }
 
     /**
      * @param amministratore the amministratore to set
      */
-    public void setAmministratore(UtenteRegistrato amministratore) {
+    public void setAmministratore(int amministratore) {
         this.amministratore = amministratore;
     }
 
     
-    private UtenteRegistrato amministratore;
+    private int amministratore;
     private List <UtenteRegistrato> utenteGruppo ; //Da modificare??
     private int id;
     private String nome;
