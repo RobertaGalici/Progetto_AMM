@@ -143,86 +143,26 @@ public class UtenteRegistratoFactory {
 	return this.connectionString;
     }
     
-    public void deleteUser(int idUtente){
-        Connection conn = null;
-        PreparedStatement stmtPost = null;
-        PreparedStatement stmtGroup = null;
-        PreparedStatement stmtGroups2 = null;
-        PreparedStatement stmtFriends = null;
-        PreparedStatement stmtUser = null;
+    public void eliminaUtente(UtenteRegistrato user) {
+        try{
+            Connection connessione = DriverManager.getConnection(connectionString, "adminSito", "sintassi");
+            String query = "delete from utentePerOgniGruppo where utente = ? ";
+            PreparedStatement frase = connessione.prepareStatement(query);
+            frase.setInt(1, user.getId());
+            frase.executeUpdate();
             
-        try {
-            // path, username, password
-            conn = DriverManager.getConnection(connectionString, "Nerdbook", "password");
-            conn.setAutoCommit(false);
+            query = "delete from utente where id = ?";
+            frase = connessione.prepareStatement(query);
+            frase.setInt(1, user.getId());
+            frase.executeUpdate();
             
-            String deletePost = "delete from post "
-                       + "where utente = ? OR id = ?";
-            String deleteGroups = "delete from utentePerOgniGruppo "
-                             + "where utente = ? OR gruppo IN "
-                                + " (select id from gruppo "
-                                + " where amministratore = ?)";
-            String deleteGroups2 = "delete from gruppo "
-                             + "where amministratore = ?";
-            String deleteFriends = "delete from amicizie "
-                              + "where idUtente1 = ? OR idUtente2 = ?";
-            String deleteUser = "delete from utente "
-                           + "where id = ?";
-
-            // Prepared Statement
-            stmtPost = conn.prepareStatement(deletePost);
-            stmtGroup = conn.prepareStatement(deleteGroups);
-            stmtGroups2 = conn.prepareStatement(deleteGroups2);
-            stmtFriends = conn.prepareStatement(deleteFriends);
-            stmtUser = conn.prepareStatement(deleteUser);
-            // Si associano i valori
-            stmtPost.setInt(1, idUtente);
-            stmtPost.setInt(2, idUtente);
-            stmtGroup.setInt(1, idUtente);
-            stmtGroup.setInt(2, idUtente);
-            stmtGroups2.setInt(1, idUtente);
-            stmtFriends.setInt(1, idUtente);
-            stmtFriends.setInt(2, idUtente);
-            stmtUser.setInt(1, idUtente);
-            
-            // Esecuzione query
-            stmtPost.executeUpdate();
-            stmtGroup.executeUpdate();
-            stmtGroups2.executeUpdate();
-            stmtFriends.executeUpdate();
-            stmtUser.executeUpdate();
-            conn.commit();
-            
-        } catch (SQLException e) {
-            if(conn!=null){
-                try {
-                    conn.rollback();
-                } catch (SQLException ex) {
-                    Logger.getLogger(UtenteRegistratoFactory.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            
-        } finally{
-            try {
-                if(stmtPost!=null)
-                    stmtPost.close();
-                if(stmtGroup!=null)
-                    stmtGroup.close();
-                if(stmtGroups2!=null)
-                    stmtGroups2.close();
-                if(stmtFriends!=null)
-                    stmtFriends.close();
-                if(stmtUser!=null)
-                    stmtUser.close();
-                if(conn!=null){
-                    conn.setAutoCommit(true);
-                    conn.close();
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(UtenteRegistratoFactory.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            frase.close();
+            connessione.close();
+        } 
+        catch (SQLException e) {
+            System.out.println("Errore SQL su eliminaListaPost");
+            e.printStackTrace();
         }
-        
     }
     
     public int login(String nome, String password) {

@@ -185,7 +185,7 @@ public class PostFactory {
             //path, username, password
             Connection conn = DriverManager.getConnection(connectionString, "nerd", "nerd");
 
-            String query1 = "delete * from post " + "where id = ? ";
+            String query1 = "delete from post " + "where id = ? ";
 
             PreparedStatement stmt = conn.prepareStatement(query1);
 
@@ -211,7 +211,7 @@ public class PostFactory {
         try {
 
             Connection conn = DriverManager.getConnection(connectionString, "nerd", "nerd");
-            String query = "delete * from post " + "where utente = ? ";
+            String query = "delete from post " + "where utente = ? ";
             // Si associano i valori
 
             PreparedStatement stmt = conn.prepareStatement(query);
