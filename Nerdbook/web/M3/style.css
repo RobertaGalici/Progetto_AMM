@@ -252,17 +252,19 @@ a:hover{
 #loginHeader{
     margin-top: 60px;
     margin-bottom: 0px;
-    margin-left: 320px;
-    margin-right: 320px;
+    margin-left: 378px;
+    margin-right: 378px;
 
 }
 #loginHeader h1{
-    padding-left: 30px;
     right: 40px;
+    padding-left: 100px;
+
     
 }
 #loginHeader img{
     position: relative;
+    margin-left: 68px;
     top: 50px;
     right: 30px;
     width: 50px;
@@ -388,6 +390,11 @@ p{
 
 #header{
     margin-left: -150px;
+}
+
+#header #loginHeader{
+    margin-left: 378px;
+    margin-right: 378px;
 }
 
 label, input, textArea{
