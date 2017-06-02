@@ -100,7 +100,7 @@ public class UtenteRegistratoFactory {
             //query di stringa
             String query = 
                     "select * from utente "
-                    + "where name = ? and password = ?"; //in realta è idUtente
+                    + "where nome = ? and password = ?"; //in realta è idUtente
           
             PreparedStatement stmt = conn.prepareStatement(query); //processa query
             
@@ -128,7 +128,49 @@ public class UtenteRegistratoFactory {
     }
 
     public UtenteRegistrato getUserById(int loggedUserId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        if(loggedUserId == -1) return null;
+        try {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "nerd", "nerd");
+            
+            String query = 
+                    "select * from utente " +
+                    "where id = ? ";
+            
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            // Si associano i valori
+            stmt.setInt(1, loggedUserId);
+            
+            // Esecuzione query
+            ResultSet res = stmt.executeQuery();
+
+            // ciclo sulle righe restituite
+            if (res.next()) {
+                UtenteRegistrato current = new UtenteRegistrato();
+                current.setId(res.getInt("id"));
+                current.setNome(res.getString("nome"));
+                current.setCognome(res.getString("cognome"));
+                current.setEmail(res.getString("email"));
+                current.setPassword(res.getString("password"));
+                current.setUrlProfilo(res.getString("urlProfilo"));
+                current.setDataNascita(res.getString("dataNascita"));
+                current.setPresentazione(res.getString("presentazione"));
+                
+
+                stmt.close();
+                conn.close();
+                return current;
+            }
+
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
     
     public List getUserList() {
