@@ -327,4 +327,47 @@ public class UtenteRegistratoFactory {
         }
         return null;
     }
+    
+    public List getUtentiList(String nome) {
+        List<UtenteRegistrato> listaUtenti = new ArrayList<UtenteRegistrato>();
+        
+        try {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "nerd", "nerd");
+            
+            String query = 
+                      "select * from utente where nome like ?";
+            
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            // Si associano i valori
+            stmt.setString(1, "%" + nome + "%");
+            
+            // Esecuzione query
+            ResultSet res = stmt.executeQuery();
+
+            // ciclo sulle righe restituite
+            while (res.next()) {
+                UtenteRegistrato current = new UtenteRegistrato();
+                current.setId(res.getInt("id"));
+                current.setNome(res.getString("nome"));
+                current.setCognome(res.getString("cognome"));
+                current.setEmail(res.getString("email"));
+                current.setPassword(res.getString("password"));
+                current.setUrlProfilo(res.getString("urlProfilo"));
+                current.setDataNascita(res.getString("dataNascita"));
+                current.setPresentazione(res.getString("presentazione"));
+                
+                listaUtenti.add(current);
+            }
+
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return listaUtenti;
+    }
 }
