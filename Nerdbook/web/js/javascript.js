@@ -9,19 +9,27 @@ function createElement(user){
     var img = $("<img>")
             .attr("title","profilo"+user.id)
             .attr("alt","foto profilo "+user.id)
-            .attr("src",user.urlFoto);
+            .attr("src",user.urlProfilo);
+    var name = $("<h2>").html(user.nome);
     var link = $("<a>")
-            .attr("href", "Bacheca?user="+user.id)
-            .html(user.nome + " " + user.cognome);
+            .attr("href", "index.html?user="+user.id)
+            .html("Link al Profilo");
+    var userData = $("<div>")
+            .attr("class","userData")
+            .append(name)
+            .append(link);
+    var profilePic = $("<div>")
+            .attr("class","profilePic")
+            .append(img);
     
     return $("<div>")
             .attr("class","user")
-            .append(img)
-            .append(link);
+            .append(profilePic)
+            .append(userData);
 }
 
 function stateSuccess(data){
-    var userListPage = $("#contactPeople");
+    var userListPage = $("#usersList"); //È corretto??
     
     $(userListPage).empty();
     
@@ -40,15 +48,15 @@ function stateFailure(data, state){
 }
 
 $(document).ready(function(){
-    $("#searchYourGato").click(function(){
+    $("#search").click(function(){
         
-        var wantedCat = $("#searchField")[0].value;
+        var wantedUser = $("#search")[0].value;
         
         $.ajax({
-            url: "CercaAmiciAjax",
+            url: "Filter",
             data:{
                 cmd:"search",
-                nomeGattoCercato: wantedCat
+                filtro: wantedUser
             },
             dataType:"json",
             success: function(data, state){
