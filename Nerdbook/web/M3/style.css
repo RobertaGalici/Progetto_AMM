@@ -163,20 +163,20 @@ a:hover{
     font-weight: bold;
 }
 
-#persone li a, #gruppi li a{
+#persone, #gruppi{
     text-align: left;
     background: #ccf3ff;
     position: fixed;
     
 }
 
-#gruppi li a{
+#gruppi{
     top: 290px;
     width: 200px;
     background-color: #ccf3ff;
 }
 
-#persone li a{
+#persone{
     top:40px;
     width: 200px;
     
@@ -251,20 +251,19 @@ a:hover{
 
 #loginHeader{
     margin-top: 60px;
+    margin-left: 375px;
     margin-bottom: 0px;
-    margin-left: 378px;
-    margin-right: 378px;
 
+
+    
 }
 #loginHeader h1{
+    padding-left: 30px;
     right: 40px;
-    padding-left: 100px;
-
     
 }
 #loginHeader img{
     position: relative;
-    margin-left: 68px;
     top: 50px;
     right: 30px;
     width: 50px;
@@ -351,10 +350,10 @@ nav ol li p {
     margin-right: 15px;
     margin-top: 18px;
 }
-
+/*
 #header nav ol p{
     margin-left: 80px;
-}
+}*/
 
 #new{
     position: fixed;
@@ -392,11 +391,6 @@ p{
     margin-left: -150px;
 }
 
-#header #loginHeader{
-    margin-left: 378px;
-    margin-right: 378px;
-}
-
 label, input, textArea{
     font: 12px/22px "Open Sans", Arial, sans-serif;
 }
@@ -412,12 +406,12 @@ nav ol li p{
     left: 30px;
 }
 
-#persone li a{
+#persone{
     top: 100px;
     width: 190px;
 
 }
-#gruppi li a{
+#gruppi{
     top: 300px;
     width: 190px;
 }
@@ -476,7 +470,7 @@ nav ol li p {
 }
 
 #riquadroLogin form button{
-    left: 375px;
+    left: 200px;
     margin-left: 55px;
     width: 131px;
 }
@@ -485,14 +479,13 @@ nav ol li p {
     height: 130px;
     width: 250px;
     margin-left: 10px;
-    left: 375px;
 }
-
+/*
 #header nav ol p{
     margin-top: 28px;
     left: 525px;    
 
-}
+}*/
 
 .goTo nav ol{
     left: 0px;
@@ -541,7 +534,7 @@ nav ol li p {
 #divBody {        
     margin-top: 40px;   
 }
-    
+
 #header nav ol{
     padding-left: 0px;
     width: 650px;
@@ -560,11 +553,11 @@ nav ol li p {
 
 }
 
-#persone li a{
+#persone{
     width: 140px;
 }
 
-#gruppi li a{
+#gruppi{
     width: 100px;
 }
 
@@ -616,6 +609,15 @@ nav ol li p {
     width: 300px;    
     padding-left: 0px;
 
+}
+/*Problema 1: non riesco a sistemare la navbar per la descrizione. i parametri corretti sono quelli riportati qua sotto, ma mi funzionano solo con l'inspector*/
+@media only screen and (min-width: 1024px){
+#header nav ol{
+    width: 690px;
+    padding-left: 0px;
+    left: 305px;
+}
+    
 }
 
 }

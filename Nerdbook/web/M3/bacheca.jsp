@@ -31,6 +31,9 @@
         
         <c:set var="page" value="newPost" scope="request"/>
         <jsp:include page="newPost.jsp"/>
+        
+        <c:set var="page" value="Cerca" scope="request"/>
+        <jsp:include page="cercaAmici.jsp"/>
                 
         
             <div id="divBody">

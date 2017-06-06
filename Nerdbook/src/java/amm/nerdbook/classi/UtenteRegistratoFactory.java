@@ -328,7 +328,7 @@ public class UtenteRegistratoFactory {
         return null;
     }
     
-    public List getUtentiList(String nome) {
+    public List getUtentiList(String nome, int id) {
         List<UtenteRegistrato> listaUtenti = new ArrayList<UtenteRegistrato>();
         
         try {
@@ -336,13 +336,17 @@ public class UtenteRegistratoFactory {
             Connection conn = DriverManager.getConnection(connectionString, "nerd", "nerd");
             
             String query = 
-                      "select * from utente where nome like ?";
+                      "select * from utente" +
+                      "where nome like ? or cognome like ? and id in ";
             
             // Prepared Statement
             PreparedStatement stmt = conn.prepareStatement(query);
             
             // Si associano i valori
             stmt.setString(1, "%" + nome + "%");
+            stmt.setString(2, "%" + nome + "%");
+            stmt.setInt(3, id);
+            stmt.setInt(4, id);
             
             // Esecuzione query
             ResultSet res = stmt.executeQuery();
@@ -364,10 +368,12 @@ public class UtenteRegistratoFactory {
 
             stmt.close();
             conn.close();
+            return listaUtenti;
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
         
-        return listaUtenti;
     }
 }
