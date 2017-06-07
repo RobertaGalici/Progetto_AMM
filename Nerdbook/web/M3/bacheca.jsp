@@ -37,7 +37,7 @@
                 
         
             <div id="divBody">
-                <c:forEach var="post" items="${listaPost}">
+                <c:forEach var="utente" items="${listaPost}">
                     
                         <c:if test="${post.postType == 'NULL'}">
                          <div id="mario" class="post">
