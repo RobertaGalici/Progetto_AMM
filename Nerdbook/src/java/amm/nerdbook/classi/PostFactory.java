@@ -139,6 +139,49 @@ public class PostFactory {
         return listaPost;
     }
     
+    public List getPostList(Gruppo gruppo) {
+        List<Post> listaPost = new ArrayList<Post>();
+        
+        try {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "nerd", "nerd");
+            
+            String query = 
+                      "SELECT tipoUrl.tipo FROM post "
+                    + "JOIN tipoUrl ON post.tipo = tipoUrl.id "
+                    + "WHERE id = ? ";
+                    
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            // Si associano i valori
+            stmt.setInt(1, gruppo.getId());
+            
+            // Esecuzione query
+            ResultSet res;
+            
+            res = stmt.executeQuery();
+
+            // ciclo sulle righe restituite
+            while (res.next()) {
+                Post current = new Post();
+                current.setId(res.getInt("id"));
+                current.setUser(res.getString("utente"));
+                current.setContentText(res.getString("contentText"));
+                current.setContentUrl(res.getString("url"));
+                //current.setPostType(res.getInt("tipoPost"));
+                listaPost.add(current);
+            }
+            
+            stmt.close();
+            conn.close();
+            return listaPost;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
     public void addNewPost(Post post){
         try {
             // path, username, password

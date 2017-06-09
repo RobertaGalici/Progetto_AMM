@@ -27,7 +27,6 @@
         <jsp:include page="sidebar.jsp"/>
         
         
-
         <!--Contenuti della pagina-->
         <div id="divBody">
             <div id="searchFriend">
@@ -42,7 +41,7 @@
                         </div>
                         <div class="userData">
                             <h2>${user.nome} ${user.cognome}</h2>
-                            <a href="index.html?user=${user.id}">Link al profilo</a>
+                            <a href="Bacheca?user=${user.id}">Link al profilo</a>
                         </div>
                     </div>
                 </c:forEach>
